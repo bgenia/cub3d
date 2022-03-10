@@ -21,8 +21,8 @@ ifdef DEBUG_MODE
 endif
 
 define .LIBRARIES
-    lib/libft/libft.a:lib/libft/include:$(FT_TARGET)
-    lib/libmlx/libmlx.a:lib/libmlx
+lib/libft/libft.a:lib/libft/include:$(FT_TARGET)
+lib/libmlx/libmlx.a:lib/libmlx
 endef
 
 include maketools/add_libraries.mk
