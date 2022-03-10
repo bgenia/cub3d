@@ -13,19 +13,19 @@ $(NAME): $(OBJ)
 
 LDLIBS += -lm -lz -lXext -lX11
 
-$(call add_library,lib/libmlx/libmlx.a,lib/libmlx)
-
 export FT_OPTIONS := FT_MALLOC_EXIT
 
 ifdef DEBUG_MODE
-
-export FT_OPTIONS := FT_MALLOC_ABORT
-
-FT_TARGETS := debug
-
+    export FT_OPTIONS := FT_MALLOC_ABORT
+    FT_TARGET := debug
 endif
 
-$(call add_library,lib/libft/libft.a,lib/libft/include,,$(FT_TARGETS))
+define .LIBRARIES
+    lib/libft/libft.a:lib/libft/include:$(FT_TARGET)
+    lib/libmlx/libmlx.a:lib/libmlx
+endef
+
+include maketools/add_libraries.mk
 
 include maketools/common_rules.mk
 
