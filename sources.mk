@@ -1,4 +1,22 @@
 SRC@src := \
+	src/render/image/image_create.c \
+	src/render/image/image_destroy.c \
+	src/render/image/image_get_pixel.c \
+	src/render/window/window_create.c \
+	src/render/window/window_draw_image.c \
+	src/render/window/window_destroy.c \
+	src/render/graphics/brush_square.c \
+	src/render/graphics/image_draw_rect.c \
+	src/render/graphics/image_draw_line.c \
+	src/render/graphics/image_draw_brush.c \
+	src/render/graphics/image_draw_circle.c \
+	src/render/graphics/image_fill_rect.c \
+	src/render/graphics/image_fill_circle.c \
+	src/render/graphics/image_fill.c \
+	src/render/graphics/image_fill_pixel.c \
+	src/render/graphics/brush_circle.c \
+	src/render/color/color_create.c \
+	src/render/color/color_get_component.c \
 	src/map/map_create.c \
 	src/map/map_print.c \
 	src/map/map_destroy.c \
