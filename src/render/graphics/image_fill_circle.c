@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 05:26:11 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 05:52:21 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 06:12:55 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ void
 {
 	t_int2	i;
 
-	if (radius == 1)
-	{
-		image_fill_pixel(image, color, position);
-		return ;
-	}
 	i.x = position.x - radius;
 	while (i.x < position.x + radius)
 	{
