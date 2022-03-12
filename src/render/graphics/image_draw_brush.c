@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 05:58:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 06:02:11 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 06:15:21 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 void
 	image_draw_brush(t_image *image, t_brush brush, t_int2 position)
 {
+	if (brush.thickness <= 1)
+	{
+		image_fill_pixel(image, brush.color, position);
+		return ;
+	}
 	if (brush.type == BRUSH_SQUARE)
 	{
 		image_fill_rect(image, brush.color,
@@ -26,7 +31,7 @@ void
 			ft_int2(position.x + brush.thickness, position.y + brush.thickness)
 			);
 	}
-	else
+	if (brush.type == BRUSH_CIRCLE)
 	{
 		image_fill_circle(image, brush.color, position, brush.thickness);
 	}
