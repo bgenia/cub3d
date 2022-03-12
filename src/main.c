@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 12:32:46 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 12:54:55 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,28 +134,43 @@ void
 	}
 }
 
+t_double2
+	rotate_vector(t_double2 vector, double angle)
+{
+	return (ft_double2(
+		vector.x * cos(angle) - vector.y * sin(angle),
+		vector.x * sin(angle) + vector.y * cos(angle)
+	));
+}
+
+# define RAD2DEG M_PI / 180
+
 void
 	draw_rays(t_image *image)
 {
 	int	i;
 
+	double angle = -60;
+
+	t_double2 rayDirection = rotate_vector(direction, angle * RAD2DEG);
+
 	i = 0;
-	while (i < 1)
+	while (i < 120)
 	{
-		double _tan = direction.y / direction.x;
+		double _tan = rayDirection.y / rayDirection.x;
 		double _atan = -1 / _tan;
 
 		t_double2 rayY;
 		t_double2 offset;
 
-		if (direction.y < 0)
+		if (rayDirection.y < 0)
 		{
 			rayY.y = position.y / TILE_SIZE * TILE_SIZE - 0.0001;
 			rayY.x = (position.y - rayY.y) * _atan + position.x;
 			offset.y = -TILE_SIZE;
 			offset.x = -offset.y * _atan;
 		}
-		if (direction.y > 0)
+		if (rayDirection.y > 0)
 		{
 			rayY.y = position.y / TILE_SIZE * TILE_SIZE + TILE_SIZE;
 			rayY.x = (position.y - rayY.y) * _atan + position.x;
@@ -163,7 +178,7 @@ void
 			offset.x = -offset.y * _atan;
 		}
 		size_t dof = 0;
-		if (direction.y == 0)
+		if (rayDirection.y == 0)
 		{
 			rayY = ft_double2(position.x, position.y);
 			dof = map.height;
@@ -191,14 +206,14 @@ void
 
 		t_double2 rayX;
 
-		if (direction.x < 0)
+		if (rayDirection.x < 0)
 		{
 			rayX.x = position.x / TILE_SIZE * TILE_SIZE - 0.0001;
 			rayX.y = (position.x - rayX.x) * _ntan + position.y;
 			offset.x = -TILE_SIZE;
 			offset.y = -offset.x * _ntan;
 		}
-		if (direction.x > 0)
+		if (rayDirection.x > 0)
 		{
 			rayX.x = position.x / TILE_SIZE * TILE_SIZE + TILE_SIZE;
 			rayX.y = (position.x - rayX.x) * _ntan + position.y;
@@ -206,7 +221,7 @@ void
 			offset.y = -offset.x * _ntan;
 		}
 		dof = 0;
-		if (direction.x == 0)
+		if (rayDirection.x == 0)
 		{
 			rayX = ft_double2(position.x, position.y);
 			dof = map.witdth;
@@ -232,9 +247,12 @@ void
 
 		t_double2 ray = lengthX > lengthY ? rayY : rayX;
 
-		image_draw_line(image, brush_circle(0x00FF00, 2), position, ft_int2(ray.x, ray.y));
+		image_draw_line(image, brush_circle(0xFF3333, 0), position, ft_int2(ray.x, ray.y));
 
 		i++;
+		rayDirection = rotate_vector(direction, (angle + i) * RAD2DEG);
+
+		// double distance = ft_mind(lengthX, lengthY);
 	}
 }
 
