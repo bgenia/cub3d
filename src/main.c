@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 12:54:55 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 14:16:11 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,50 @@ int
 t_int2 position = {0, 0};
 double angle = 0;
 
-const double SPEED = 10;
+const double SPEED = 3;
 
 t_map map;
+
+t_double2 direction = {0, 1};
+
+t_double2
+	rotate_vector(t_double2 vector, double angle)
+{
+	return (ft_double2(
+		vector.x * cos(angle) - vector.y * sin(angle),
+		vector.x * sin(angle) + vector.y * cos(angle)
+	));
+}
+
+double
+	dot(t_double2 a, t_double2 b)
+{
+	return (a.x * b.x + a.y * b.y);
+}
 
 int
 	handle_wasd(int key, t_window *window)
 {
 	(void)window;
 	if (key == XK_w)
-		position.y -= SPEED;
-	if (key == XK_a)
-		position.x -= SPEED;
+	{
+		position.x += direction.x * SPEED;
+		position.y += direction.y * SPEED;
+	}
+	// if (key == XK_a)
+	// 	position.x += direction.x * SPEED;
 	if (key == XK_s)
-		position.y += SPEED;
-	if (key == XK_d)
-		position.x += SPEED;
+	{
+		position.x -= direction.x * SPEED;
+		position.y -= direction.y * SPEED;
+	}
+	// if (key == XK_d)
+	// {
+
+	// 	position.x -= rotate_vector(direction,  * SPEED;
+	// }
 	return (0);
 }
-
-t_double2 direction = {0, 1};
 
 int
 	handle_cursor(int x, int y, t_window *window)
@@ -103,6 +127,7 @@ int
 
 	double h = hypot(x, y);
 
+	(void)h;
 	direction = ft_double2(x / h, y / h);
 
 	return (0);
@@ -134,43 +159,51 @@ void
 	}
 }
 
-t_double2
-	rotate_vector(t_double2 vector, double angle)
-{
-	return (ft_double2(
-		vector.x * cos(angle) - vector.y * sin(angle),
-		vector.x * sin(angle) + vector.y * cos(angle)
-	));
-}
+# define DEG2RAD M_PI / 180
 
-# define RAD2DEG M_PI / 180
+void
+	draw3d(t_image *image, t_color color, double distance, int ray_index, int ray_count)
+{
+	int column_width = image->width / ray_count;
+	int colomn_height = ft_min(TILE_SIZE * image->height / distance, image->height);
+	int column_x = column_width * ray_index;
+	int column_y = image->height / 2 - colomn_height / 2;
+
+	// ft_printf("Col: %d %d %d %d\n", column_width, colomn_height, column_x, column_y);
+
+	image_fill_rect(image, color, ft_int2(column_x, column_y), ft_int2(column_x + column_width, column_y + colomn_height));
+}
 
 void
 	draw_rays(t_image *image)
 {
 	int	i;
 
-	double angle = -60;
+	double fov = 60;
+	double angle = -fov / 2;
+	double change = fov / image->width;
 
-	t_double2 rayDirection = rotate_vector(direction, angle * RAD2DEG);
+	t_double2 ray_direction = rotate_vector(direction, angle * DEG2RAD);
 
 	i = 0;
-	while (i < 120)
+	while (angle < fov / 2)
 	{
-		double _tan = rayDirection.y / rayDirection.x;
+		double _tan = ray_direction.y / ray_direction.x;
 		double _atan = -1 / _tan;
 
 		t_double2 rayY;
 		t_double2 offset;
 
-		if (rayDirection.y < 0)
+		double lengthY = 0;
+
+		if (ray_direction.y < 0)
 		{
 			rayY.y = position.y / TILE_SIZE * TILE_SIZE - 0.0001;
 			rayY.x = (position.y - rayY.y) * _atan + position.x;
 			offset.y = -TILE_SIZE;
 			offset.x = -offset.y * _atan;
 		}
-		if (rayDirection.y > 0)
+		if (ray_direction.y > 0)
 		{
 			rayY.y = position.y / TILE_SIZE * TILE_SIZE + TILE_SIZE;
 			rayY.x = (position.y - rayY.y) * _atan + position.x;
@@ -178,10 +211,11 @@ void
 			offset.x = -offset.y * _atan;
 		}
 		size_t dof = 0;
-		if (rayDirection.y == 0)
+		if (ray_direction.y == 0)
 		{
 			rayY = ft_double2(position.x, position.y);
 			dof = map.height;
+			lengthY = INFINITY;
 		}
 		while (dof < map.height)
 		{
@@ -200,20 +234,23 @@ void
 		}
 		// image_draw_line(image, brush_circle(0xFF0000, 3), position, ft_int2(rayY.x, rayY.y));
 
-		double lengthY = hypot(rayY.x - position.x, rayY.y - position.y);
+		if (lengthY < INFINITY)
+			lengthY = hypot(rayY.x - position.x, rayY.y - position.y);
 
 		double _ntan = -_tan;
 
 		t_double2 rayX;
 
-		if (rayDirection.x < 0)
+		double lengthX = 0;
+
+		if (ray_direction.x < 0)
 		{
 			rayX.x = position.x / TILE_SIZE * TILE_SIZE - 0.0001;
 			rayX.y = (position.x - rayX.x) * _ntan + position.y;
 			offset.x = -TILE_SIZE;
 			offset.y = -offset.x * _ntan;
 		}
-		if (rayDirection.x > 0)
+		if (ray_direction.x > 0)
 		{
 			rayX.x = position.x / TILE_SIZE * TILE_SIZE + TILE_SIZE;
 			rayX.y = (position.x - rayX.x) * _ntan + position.y;
@@ -221,10 +258,11 @@ void
 			offset.y = -offset.x * _ntan;
 		}
 		dof = 0;
-		if (rayDirection.x == 0)
+		if (ray_direction.x == 0)
 		{
 			rayX = ft_double2(position.x, position.y);
 			dof = map.witdth;
+			lengthX = INFINITY;
 		}
 		while (dof < map.height)
 		{
@@ -243,16 +281,39 @@ void
 		}
 		// image_draw_line(image, brush_circle(0x00FF00, 2), position, ft_int2(rayX.x, rayX.y));
 
-		double lengthX = hypot(rayX.x - position.x, rayX.y - position.y);
+		if (lengthX < INFINITY)
+			lengthX = hypot(rayX.x - position.x, rayX.y - position.y);
 
-		t_double2 ray = lengthX > lengthY ? rayY : rayX;
+		// t_double2 ray = lengthX > lengthY ? rayY : rayX;
 
-		image_draw_line(image, brush_circle(0xFF3333, 0), position, ft_int2(ray.x, ray.y));
+		// image_draw_line(image, brush_circle(0xFF3333, 0), position, ft_int2(ray.x, ray.y));
+
+		double distance = ft_mind(lengthX, lengthY);
+
+		double cos_phi = dot(direction, ray_direction);
+
+		distance *= cos_phi;
+
+		// double direction1 = acos(ray_direction.x);
+		// double direction2 = asin(ray_direction.y);
+
+		// ft_printf(">> %f %f \n", direction1, direction2);
+
+		// double ca =
+
+		t_color color;
+
+		if (lengthX > lengthY)
+			color = 0x9c9c9c;
+		else
+			color = 0x696969;
+
+		(void)distance, (void)image;
+		draw3d(image, color, distance, i, fov / change);
 
 		i++;
-		rayDirection = rotate_vector(direction, (angle + i) * RAD2DEG);
-
-		// double distance = ft_mind(lengthX, lengthY);
+		angle += change;
+		ray_direction = rotate_vector(direction, angle * DEG2RAD);
 	}
 }
 
