@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 05:26:11 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 06:12:55 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 06:40:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void
 	t_int2	i;
 
 	i.x = position.x - radius;
-	while (i.x < position.x + radius)
+	while (i.x < position.x + radius + 1)
 	{
 		i.y = position.y - radius;
-		while (i.y < position.y + radius)
+		while (i.y < position.y + radius + 1)
 		{
 			if (_is_in_circle(position, radius, i))
 				image_fill_pixel(image, color, i);
