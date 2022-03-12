@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 07:58:35 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 12:32:46 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,110 @@ void
 	}
 }
 
+void
+	draw_rays(t_image *image)
+{
+	int	i;
+
+	i = 0;
+	while (i < 1)
+	{
+		double _tan = direction.y / direction.x;
+		double _atan = -1 / _tan;
+
+		t_double2 rayY;
+		t_double2 offset;
+
+		if (direction.y < 0)
+		{
+			rayY.y = position.y / TILE_SIZE * TILE_SIZE - 0.0001;
+			rayY.x = (position.y - rayY.y) * _atan + position.x;
+			offset.y = -TILE_SIZE;
+			offset.x = -offset.y * _atan;
+		}
+		if (direction.y > 0)
+		{
+			rayY.y = position.y / TILE_SIZE * TILE_SIZE + TILE_SIZE;
+			rayY.x = (position.y - rayY.y) * _atan + position.x;
+			offset.y = TILE_SIZE;
+			offset.x = -offset.y * _atan;
+		}
+		size_t dof = 0;
+		if (direction.y == 0)
+		{
+			rayY = ft_double2(position.x, position.y);
+			dof = map.height;
+		}
+		while (dof < map.height)
+		{
+			t_int2 map_pos = ft_int2(rayY.x / TILE_SIZE, rayY.y / TILE_SIZE);
+			size_t map_index = map_pos.y * map.witdth + map_pos.x;
+			if (map_index >= 0 && map_index < map.height * map.witdth && map.vec_value[map_index] == '#')
+			{
+				dof = map.height;
+			}
+			else
+			{
+				rayY.x += offset.x;
+				rayY.y += offset.y;
+				dof += 1;
+			}
+		}
+		// image_draw_line(image, brush_circle(0xFF0000, 3), position, ft_int2(rayY.x, rayY.y));
+
+		double lengthY = hypot(rayY.x - position.x, rayY.y - position.y);
+
+		double _ntan = -_tan;
+
+		t_double2 rayX;
+
+		if (direction.x < 0)
+		{
+			rayX.x = position.x / TILE_SIZE * TILE_SIZE - 0.0001;
+			rayX.y = (position.x - rayX.x) * _ntan + position.y;
+			offset.x = -TILE_SIZE;
+			offset.y = -offset.x * _ntan;
+		}
+		if (direction.x > 0)
+		{
+			rayX.x = position.x / TILE_SIZE * TILE_SIZE + TILE_SIZE;
+			rayX.y = (position.x - rayX.x) * _ntan + position.y;
+			offset.x = TILE_SIZE;
+			offset.y = -offset.x * _ntan;
+		}
+		dof = 0;
+		if (direction.x == 0)
+		{
+			rayX = ft_double2(position.x, position.y);
+			dof = map.witdth;
+		}
+		while (dof < map.height)
+		{
+			t_int2 map_pos = ft_int2(rayX.x / TILE_SIZE, rayX.y / TILE_SIZE);
+			size_t map_index = map_pos.y * map.witdth + map_pos.x;
+			if (map_index >= 0 && map_index < map.height * map.witdth && map.vec_value[map_index] == '#')
+			{
+				dof = map.height;
+			}
+			else
+			{
+				rayX.x += offset.x;
+				rayX.y += offset.y;
+				dof += 1;
+			}
+		}
+		// image_draw_line(image, brush_circle(0x00FF00, 2), position, ft_int2(rayX.x, rayX.y));
+
+		double lengthX = hypot(rayX.x - position.x, rayX.y - position.y);
+
+		t_double2 ray = lengthX > lengthY ? rayY : rayX;
+
+		image_draw_line(image, brush_circle(0x00FF00, 2), position, ft_int2(ray.x, ray.y));
+
+		i++;
+	}
+}
+
 int
 	handle_frame(t_window *window)
 {
@@ -142,10 +246,14 @@ int
 
 	draw_map(next_frame, &map);
 
-	t_int2 view_direction = ft_int2(direction.x * 50 + position.x, direction.y * 50 + position.y);
+	// t_int2 view_direction = ft_int2(direction.x * 30 + position.x, direction.y * 30 + position.y);
+
+	// ft_printf(">> %f %f\n", direction.x, direction.y);
+
+	draw_rays(next_frame);
 
 	// Draw direction
-	image_draw_line(next_frame, brush_circle(0xde1f1f, 2), position, view_direction);
+	// image_draw_line(next_frame, brush_circle(0xde1f1f, 2), position, view_direction);
 
 	// Draw player
 	image_fill_circle(next_frame, 0x00b309, position, 10);
