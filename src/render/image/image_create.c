@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 04:10:40 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 04:15:26 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 04:59:10 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <mlx.h>
 
 t_image
-	image_create(void *mlx, int width, int height)
+	image_create(void *mlx, size_t width, size_t height)
 {
 	t_image	image;
 
