@@ -13,6 +13,14 @@ $(NAME): $(OBJ)
 
 LDLIBS += -lm -lz -lXext -lX11
 
+MODIFIERS := noflags
+
+include maketools/modifiers.mk
+
+ifdef MODIFIERS[noflags]
+    CFLAGS := $(filter-out -Wall -Werror -Wextra,$(CFLAGS))
+endif
+
 export FT_OPTIONS := FT_MALLOC_EXIT
 
 ifdef DEBUG_MODE
