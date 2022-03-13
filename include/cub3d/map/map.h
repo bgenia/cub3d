@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 02:30:58 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:16:36 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/13 18:41:47 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void
 map_destroy(t_map *map);
 
 void
-map_push_char(t_map *map, char c);
+map_add_line(t_map *map);
 void
-map_push_endl(t_map *map);
+map_push_char(t_map *map, char c);
 void
 map_push_line(t_map *map, char *line);
 
