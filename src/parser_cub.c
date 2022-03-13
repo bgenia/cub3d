@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_cub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 23:30:15 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/14 00:09:15 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
+
+# include <libft/string/string.h>
+# include <libft/io/printf.h>
+# include <libft/memory/memory.h>
 
 
 /*
@@ -80,13 +85,12 @@ typedef struct s_list
 #######################
 */
 
-char	**ft_split(char const *s, char c);
 
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*ptr;
 
-	ptr = malloc(sizeof(t_list));
+	ptr = ft_malloc(sizeof(t_list));
 	if (ptr == 0)
 		return (NULL);
 	ptr->content = content;
@@ -129,81 +133,26 @@ int	ft_lstsize(t_list *lst)
 	return (l);
 }
 
-int	ft_strcmp(const char *str1, const char *str2)
-{
-	size_t	a;
-
-	a = 0;
-	while (1 == 1)
-	{
-		if (str1[a] != str2[a] || str1[a] == '\0'
-			|| str2[a] == '\0')
-			return ((unsigned char)str1[a] - (unsigned char)str2[a]);
-		a++;
-	}
-	return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-	char	*s1;
-
-	s1 = (char *)s;
-	i = 0;
-	if (s1 == NULL)
-		return (0);
-	while (s1[i])
-		i++;
-	return (i);
-}
-
-
-char	*ft_strdup(const char *s)
-{
-	int		i;
-	char	*res;
-
-	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!res)
-		exit(EXIT_FAILURE);
-	i = 0;
-	while (s[i])
-	{
-		res[i] = s[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	write(fd, s, ft_strlen(s));
-}
-
 /* MAIN PART
 #######################
 #######################
 */
 
-void	ft_exit(char *s)
+void	ft_exit(char *message)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(s, 2);
-	ft_putstr_fd("\n", 2);
+	ft_dprintf(STDERR_FILENO, "Error\n%s\n", message);
 	exit(EXIT_FAILURE);
 }
 
-int	check_extension(char *s)
+bool
+	check_extension(char *file)
 {
-	int	q;
+	char	*extension;
 
-	q = ft_strlen(s);
-	if (q < 4 || s[q - 1] != 'b' || s[q - 2] != 'u'
-		|| s[q - 3] != 'c' || s[q - 4] != '.')
-		return (-1);
-	return (0);
+	extension = ft_strrchr(file, '.');
+	if (ft_strcmp(extension, ".cub") == 0)
+		return (true);
+	return (false);
 }
 
 int	new_get_next_line(char **line, int fd)
@@ -213,7 +162,7 @@ int	new_get_next_line(char **line, int fd)
 	char	*tmp;
 	int		i;
 
-	*line = malloc(sizeof(char) * 2);
+	*line = ft_malloc(sizeof(char) * 2);
 	*line[0] = '\0';
 	while ((ret = read(fd, &c, 1)) != 0)
     {
@@ -222,7 +171,7 @@ int	new_get_next_line(char **line, int fd)
         else
         {
             tmp = *line;
-            *line = malloc(sizeof(char) * (ft_strlen(*line) + 2));
+            *line = ft_malloc(sizeof(char) * (ft_strlen(*line) + 2));
             i = -1;
             while(tmp[++i])
                 line[0][i] = tmp[i];
@@ -251,25 +200,11 @@ char	*check_fill_data(t_map *map)
 	return (NULL);
 }
 
-void	free_split(char **b)
-{
-	int i;
-
-	i = 0;
-	while (b[i])
-	{
-		free(b[i]);
-		i++;
-	}
-	free(b[i]);
-	free(b);
-}
-
 void	get_data(t_map *map, char *line)
 {
 	char	**b;
 
-	b = ft_split(line, ' ');
+	b = ft_smsplit(line, ' ');
 	if (ft_strcmp(b[0], "NO") == 0)
 		map->no_texture = ft_strdup(b[1]);
 	else if (ft_strcmp(b[0], "SO") == 0)
@@ -282,8 +217,7 @@ void	get_data(t_map *map, char *line)
 		map->floor_colour = ft_strdup(b[1]);
 	else if (ft_strcmp(b[0], "C") == 0)
 		map->ceilling_colour = ft_strdup(b[1]);
-	free_split(b);
-	return ;
+	free(b);
 }
 
 void	get_map_to_list(t_list **temp, char *line)
@@ -292,6 +226,16 @@ void	get_map_to_list(t_list **temp, char *line)
 
 	new = ft_lstnew(ft_strdup(line));
 	ft_lstadd_back(temp, new);
+}
+
+const static char *g_map_chars = " 01NSEW";
+
+bool
+	is_valid_map_char(char c)
+{
+	if (ft_strchr(g_map_chars, c))
+		return (true);
+	return (false);
 }
 
 int	convert_to_map(char c)
@@ -326,7 +270,7 @@ void parse_list_to_map(t_map *map, t_list *temp)
 	int		cnt_letters; //кол-во символов в одной строке
 
 	q = ft_lstsize(temp);
-	map->map = malloc(sizeof(char *) * (q + 1));
+	map->map = ft_malloc(sizeof(char *) * (q + 1));
 	if (!map->map)
 		exit(EXIT_FAILURE);
 	while (q > 0)
@@ -339,7 +283,7 @@ void parse_list_to_map(t_map *map, t_list *temp)
 			cnt_letters++;
 			i++;
 		}
-		map->map[ft_lstsize(temp) - q] = malloc(sizeof(int) * cnt_letters);
+		map->map[ft_lstsize(temp) - q] = ft_malloc(sizeof(int) * cnt_letters);
 		if (!map->map[ft_lstsize(temp) - q])
 			exit(EXIT_FAILURE);
 		i = 0;
@@ -355,10 +299,10 @@ void parse_list_to_map(t_map *map, t_list *temp)
 			}
 			i++;
 		}
-		
+
 		q--;
 	}
-	
+
 }
 */
 
@@ -370,7 +314,7 @@ void parse_list_to_map(t_map *map, t_list *temp)
 	int		a;
 	char	*s;
 
-	map->map = malloc(sizeof(char *) * (ft_lstsize(temp) + 1));
+	map->map = ft_malloc(sizeof(char *) * (ft_lstsize(temp) + 1));
 	a = 0;
 	max_len = 0;
 	while (temp)
@@ -379,7 +323,7 @@ void parse_list_to_map(t_map *map, t_list *temp)
 		i = 0;
 		if (ft_strlen(s) > max_len)
 			max_len = ft_strlen(s);
-		map->map[a] = malloc(sizeof(int) * ft_strlen(s));
+		map->map[a] = ft_malloc(sizeof(int) * ft_strlen(s));
 		if (!map->map[a])
 			exit(EXIT_FAILURE);
 		while (s[i])
@@ -439,7 +383,7 @@ void	parse_and_draw(char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 		ft_exit(FILE_ER);
-	map = malloc(sizeof(t_map));
+	map = ft_malloc(sizeof(t_map));
 	if (!map)
 		ft_exit(MEM);
 	map_to_null(map);
