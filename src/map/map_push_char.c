@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   map_push_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:38:06 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 17:50:04 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 18:42:08 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/map/map.h>
 
 #include <libft/vector/vector.h>
-#include <libft/io/printf.h>
+#include <libft/math.h>
 
 void
-	map_print(t_map *map)
+	map_push_char(t_map *map, char c)
 {
-	size_t	i;
-	size_t	j;
+	size_t	new_length;
 
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c", map_get(map, j, i));
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
+	if (map->height == 0)
+		map_add_line(map);
+	*(char *)ft_vector_push_back(&map->vec_value[map->height - 1]) = c;
+	new_length = ft_vector_get_size(map->vec_value[map->height - 1]);
+	map->width = ft_max(map->width, new_length);
 }
