@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   map_push_endl.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:26:03 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 18:03:10 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 18:13:18 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/map/map.h>
 
 #include <libft/vector/vector.h>
-#include <libft/io/printf.h>
 
 void
-	map_print(t_map *map)
+	map_push_endl(t_map *map)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c", map_get(map, j, i));
-			j++;
-		}
-		if (i < map->height - 1)
-		{
-			ft_printf("\n");
-		}
-		i++;
-	}
+	*(char **)ft_vector_push_back(&map->vec_value) =
+		ft_vector_alloc_empty(sizeof(**map->vec_value));
+	map->height++;
 }
