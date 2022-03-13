@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:44:34 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 15:34:17 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/13 19:40:29 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ color_rgb(
 	t_color_component b
 	);
 
+t_color
+color_parse(char *color_string);
+
 t_color_component
 color_get_alpha(t_color color);
 t_color_component
@@ -42,7 +45,6 @@ t_color_component
 color_get_green(t_color color);
 t_color_component
 color_get_blue(t_color color);
-
 
 t_color
 color_multiply_components(t_color color, double r, double g, double b);
