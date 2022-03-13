@@ -1,6 +1,7 @@
 SRC@src := \
 	src/render/image/image_create.c \
 	src/render/image/image_destroy.c \
+	src/render/image/image_load_xpm_file.c \
 	src/render/image/image_get_pixel.c \
 	src/render/window/window_create.c \
 	src/render/window/window_draw_image.c \
@@ -15,6 +16,7 @@ SRC@src := \
 	src/render/graphics/image_fill.c \
 	src/render/graphics/image_fill_pixel.c \
 	src/render/graphics/brush_circle.c \
+	src/render/color/color_multiply_colponents.c \
 	src/render/color/color_create.c \
 	src/render/color/color_get_component.c \
 	src/map/map_create.c \
