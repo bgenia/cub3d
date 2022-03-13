@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   window_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 00:17:14 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 05:00:37 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/12 05:04:40 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
+#include <cub3d/render/window.h>
 
-#include <cub3d/map/map.h>
+#include <mlx.h>
 
-#include <libft/vector/vector.h>
-
-t_map
-	map_create(void)
+void
+	window_destroy(t_window *window)
 {
-	t_map	map;
-
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	mlx_destroy_window(window->mlx, window->mlx_window);
 }

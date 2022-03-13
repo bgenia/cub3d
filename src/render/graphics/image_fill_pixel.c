@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_add_line.c                                     :+:      :+:    :+:   */
+/*   image_fill_pixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 18:03:10 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:42:34 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 04:25:00 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/12 05:15:50 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map/map.h>
+#include <stddef.h>
 
-#include <libft/vector/vector.h>
+#include <cub3d/render/color.h>
+#include <cub3d/render/image.h>
+#include <cub3d/render/graphics.h>
+
+#include <libft/tuples.h>
 
 void
-	map_add_line(t_map *map)
+	image_fill_pixel(t_image *image, t_color color, t_int2 position)
 {
-	*(char **)ft_vector_push_back(&map->vec_value) =
-		ft_vector_alloc_empty(sizeof(**map->vec_value));
-	map->height++;
+	if (position.x < 0 || position.x > (int)image->width)
+		return ;
+	if (position.y < 0 || position.y > (int)image->height)
+		return ;
+	*image_get_pixel(image, position.x, position.y) = color;
 }

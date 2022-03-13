@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_destroy.c                                      :+:      :+:    :+:   */
+/*   vecmath.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:57:08 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 17:47:04 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 19:58:42 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 20:01:29 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map/map.h>
+#ifndef VECMATH_H
+# define VECMATH_H
 
-#include <libft/vector/vector.h>
+# include <libft/tuples.h>
 
-void
-	map_destroy(t_map *map)
-{
-	size_t	i;
+double
+vec_dot(t_double2 a, t_double2 b);
 
-	i = 0;
-	while (i < ft_vector_get_size(map->vec_value))
-	{
-		ft_vector_free(map->vec_value[i]);
-		i++;
-	}
-	ft_vector_free(map->vec_value);
-}
+double
+vec_cross(t_double2 a, t_double2 b);
+
+double
+vec_length(t_double2 vec);
+
+t_double2
+vec_normalize(t_double2 vec);
+
+t_double2
+vec_rotate(t_double2 vec, double angle);
+
+#endif

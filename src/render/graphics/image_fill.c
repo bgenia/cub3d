@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   image_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 00:17:14 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 04:25:00 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/12 04:42:27 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
+#include <stddef.h>
 
-#include <cub3d/map/map.h>
+#include <cub3d/render/color.h>
+#include <cub3d/render/image.h>
+#include <cub3d/render/graphics.h>
 
-#include <libft/vector/vector.h>
-
-t_map
-	map_create(void)
+void
+	image_fill(t_image *image, t_color color)
 {
-	t_map	map;
+	size_t	i;
+	size_t	j;
 
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	i = 0;
+	while (i < image->height)
+	{
+		j = 0;
+		while (j < image->width)
+		{
+			*image_get_pixel(image, j, i) = color;
+			j++;
+		}
+		i++;
+	}
 }

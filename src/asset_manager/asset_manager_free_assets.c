@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   asset_manager_free_assets.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 00:17:14 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 19:48:06 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 19:49:51 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
+#include <cub3d/asset_manager.h>
+#include <cub3d/render/image.h>
 
-#include <cub3d/map/map.h>
-
-#include <libft/vector/vector.h>
-
-t_map
-	map_create(void)
+void
+	asset_manager_free_assets(t_asset_manager *asset_manager)
 {
-	t_map	map;
-
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	image_destroy(&asset_manager->north_texture);
+	image_destroy(&asset_manager->south_texture);
+	image_destroy(&asset_manager->west_texture);
+	image_destroy(&asset_manager->east_texture);
 }
