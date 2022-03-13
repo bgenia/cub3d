@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:26:03 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/13 18:38:06 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void
 			ft_printf("%c", map_get(map, j, i));
 			j++;
 		}
-		if (i < map->height - 1)
-		{
-			ft_printf("\n");
-		}
+		ft_printf("\n");
 		i++;
 	}
 }
