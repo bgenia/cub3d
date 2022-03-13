@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   map_push_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:26:03 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 02:57:56 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 18:22:25 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/map/map.h>
 
+#include <libft/string/string.h>
 #include <libft/vector/vector.h>
-#include <libft/io/printf.h>
 
 void
-	map_print(t_map *map)
+	map_push_line(t_map *map, char *line)
 {
+	size_t	length;
 	size_t	i;
-	size_t	j;
 
+	length = ft_strlen(line);
 	i = 0;
-	while (i < map->height)
+	while (i < length)
 	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c", map_get(map, j, i));
-			j++;
-		}
-		if (i < map->height - 1)
-		{
-			ft_printf("\n");
-		}
+		map_push_char(map, line[i]);
 		i++;
 	}
+	map_push_endl(map);
 }
