@@ -6,11 +6,11 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 02:57:08 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 17:47:04 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 01:23:24 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map/map.h>
+#include <cub3d/map.h>
 
 #include <libft/vector/vector.h>
 
