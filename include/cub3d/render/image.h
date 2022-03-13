@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:29:52 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 04:58:46 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/12 15:00:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ image_destroy(t_image *image);
 
 t_color
 *image_get_pixel(t_image *image, size_t x, size_t y);
+
+t_image
+image_load_xpm_file(void *mlx, char *path);
 
 #endif
