@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   vec_dot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 00:17:14 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 20:02:19 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 20:03:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <cub3d/vecmath.h>
+
+#include <libft/tuples.h>
+
 #include <math.h>
 
-#include <cub3d/map/map.h>
-
-#include <libft/vector/vector.h>
-
-t_map
-	map_create(void)
+double
+	vec_dot(t_double2 a, t_double2 b)
 {
-	t_map	map;
-
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	return (a.x * b.x + a.y * b.y);
 }

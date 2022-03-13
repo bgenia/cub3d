@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   brush_circle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:17:11 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 05:23:20 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/12 06:08:04 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map/map.h>
+#include <cub3d/render/color.h>
+#include <cub3d/render/graphics.h>
 
-#include <libft/vector/vector.h>
-
-t_map
-	map_create(void)
+t_brush
+	brush_circle(t_color color, int thickness)
 {
-	t_map	map;
-
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	return ((t_brush){
+		.color = color,
+		.type = BRUSH_CIRCLE,
+		.thickness = thickness
+	});
 }

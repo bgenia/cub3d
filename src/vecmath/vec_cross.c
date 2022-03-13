@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   vec_cross.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 18:38:06 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/13 20:02:19 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/13 20:10:52 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map/map.h>
+#include <cub3d/vecmath.h>
 
-#include <libft/vector/vector.h>
-#include <libft/io/printf.h>
+#include <libft/tuples.h>
 
-void
-	map_print(t_map *map)
+#include <math.h>
+
+double
+	vec_cross(t_double2 a, t_double2 b)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c", map_get(map, j, i));
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
+	return (a.x * b.y - a.y * b.x);
 }
