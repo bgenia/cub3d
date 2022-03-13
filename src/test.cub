@@ -1,0 +1,12 @@
+NO ./pat_no
+SO ./pat_so
+EA ./pat_ea
+WE ./pat_we
+
+F 4,4,4
+C 45,5,5
+
+11S
+101
+000
+100
