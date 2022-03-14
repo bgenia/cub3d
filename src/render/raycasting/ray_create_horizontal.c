@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 20:33:13 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:32:40 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ t_ray
 	direction_tan = direction.y / direction.x;
 	if (direction.x < 0)
 	{
-		ray.position.x = origin.x - RAY_CORRECTION_COEFFICENT;
+		ray.position.x = floor(origin.x) - RAY_CORRECTION_COEFFICENT;
 		ray.offset.x = -1;
 	}
 	if (direction.x > 0)
 	{
-		ray.position.x = origin.x + 1;
+		ray.position.x = ceil(origin.x);
 		ray.offset.x = 1;
 	}
 	ray.position.y = (origin.x - ray.position.x)
