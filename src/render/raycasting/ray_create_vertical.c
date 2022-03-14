@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 20:33:20 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:32:44 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ t_ray
 	direction_ctg = direction.x / direction.y;
 	if (direction.y < 0)
 	{
-		ray.position.y = origin.y - RAY_CORRECTION_COEFFICENT;
+		ray.position.y = floor(origin.y) - RAY_CORRECTION_COEFFICENT;
 		ray.offset.y = -1;
 	}
 	if (direction.y > 0)
 	{
-		ray.position.y = origin.y + 1;
+		ray.position.y = ceil(origin.y);
 		ray.offset.y = 1;
 	}
 	ray.position.x = (origin.y - ray.position.y)
