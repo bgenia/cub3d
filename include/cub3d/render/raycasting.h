@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:51:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 20:29:22 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:49:01 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ typedef struct s_ray
 	double		length;
 }	t_ray;
 
-typedef bool	(*t_ray_hit_predicate)(t_double2 position);
+typedef struct s_ray_hit_predicate
+{
+	bool	(*predicate)(t_double2 position, void *arg);
+	void	*arg;
+}	t_ray_hit_predicate;
 
 t_ray
 ray_create_vertical(t_double2 origin, t_double2 direction);
@@ -42,7 +46,11 @@ t_ray
 ray_create_horizontal(t_double2 origin, t_double2 direction);
 
 void
-ray_cast(t_ray *ray, int iteration_limit, t_ray_hit_predicate predicate);
+ray_cast(
+	t_ray *ray,
+	int iteration_limit,
+	t_ray_hit_predicate predicate
+	);
 
 t_ray
 cast_ray(
