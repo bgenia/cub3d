@@ -6,6 +6,10 @@ SRC@src := \
 	src/render/window/window_create.c \
 	src/render/window/window_draw_image.c \
 	src/render/window/window_destroy.c \
+	src/render/raycasting/cast_ray.c \
+	src/render/raycasting/ray_cast.c \
+	src/render/raycasting/ray_create_vertical.c \
+	src/render/raycasting/ray_create_horizontal.c \
 	src/render/graphics/brush_square.c \
 	src/render/graphics/image_draw_rect.c \
 	src/render/graphics/image_draw_line.c \
@@ -21,10 +25,15 @@ SRC@src := \
 	src/render/color/color_get_component.c \
 	src/render/color/color_multiply_components.c \
 	src/vecmath/vec_rotate.c \
+	src/vecmath/vec_direction_to.c \
 	src/vecmath/vec_length.c \
 	src/vecmath/vec_cross.c \
+	src/vecmath/vec_add.c \
 	src/vecmath/vec_normalize.c \
+	src/vecmath/vec_direction.c \
 	src/vecmath/vec_dot.c \
+	src/vecmath/vec_scale.c \
+	src/vecmath/vec_distance.c \
 	src/parser/parse_cub_file.c \
 	src/parser/validate_map_char.c \
 	src/parser/validate_file_extension.c \
