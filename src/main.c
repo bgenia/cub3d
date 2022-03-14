@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 21:40:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:50:24 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,9 +258,9 @@ void
 # define COLUMN_WIDTH 1
 
 bool
-	ray_hit_predicate(t_double2 hit_position)
+	ray_hit_predicate(t_double2 hit_position, t_map *my_map)
 {
-	return (map_get(&map, hit_position.x, hit_position.y) == '#');
+	return (map_get(my_map, hit_position.x, hit_position.y) == '#');
 }
 
 void
@@ -281,7 +281,7 @@ void
 	while (angle < fov / 2)
 	{
 
-		t_ray ray = cast_ray(origin, ray_direction, map.width, ray_hit_predicate);
+		t_ray ray = cast_ray(origin, ray_direction, map.width, (t_ray_hit_predicate){ .predicate = (void *)ray_hit_predicate, .arg = &map });
 
 		ray.length *= vec_dot(direction, ray.direction);
 
