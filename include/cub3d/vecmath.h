@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:58:42 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 18:53:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 20:43:09 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ vec_distance(t_double2 a, t_double2 b);
 
 t_double2
 vec_add(t_double2 a, t_double2 b);
+
+t_double2
+vec_scale(t_double2 vec, double n);
 
 t_double2
 vec_direction(double angle);
