@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 20:39:21 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:49:07 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void
 	i = 0;
 	while (iteration_limit < 0 || i < iteration_limit)
 	{
-		if (predicate(ray->position))
+		if (predicate.predicate(ray->position, predicate.arg))
 			break ;
 		ray->position = vec_add(ray->position, ray->offset);
 		i++;
