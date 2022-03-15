@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 22:37:54 by drohanne         ###   ########.fr       */
+/*   Created: 2022/03/15 21:48:13 by drohanne          #+#    #+#             */
+/*   Updated: 2022/03/15 22:42:56 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/map.h>
+#include <cub3d/parser.h>
+#include <cub3d/asset_manager.h>
+#include <cub3d/parser.h>
+#include <cub3d/check_map.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include <libft/vector/vector.h>
-#include <libft/io/printf.h>
-
-void
-	map_print(t_map *map)
+void	check_map(t_map *map)
 {
 	size_t	i;
 	size_t	j;
@@ -27,10 +29,11 @@ void
 		j = 0;
 		while (j < map->width)
 		{
-			ft_printf("%c", map_get(map, j, i));
+			if (!validate_map_char(map_get(map, j, i)))
+				exit(1);
 			j++;
 		}
-		ft_printf("\n");
+		printf("\n");
 		i++;
 	}
 }
