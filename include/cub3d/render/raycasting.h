@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:51:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 21:49:01 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/15 06:44:39 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef enum e_ray_type
 {
-	RAY_HORIZONTAL,
-	RAY_VERTICAL
+	RAY_VERTICAL,
+	RAY_HORIZONTAL
 }	t_ray_type;
 typedef struct s_ray
 {
