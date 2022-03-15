@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 01:37:06 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/15 22:15:29 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ static void
 		assets->floor_color = ft_strdup(b[1]);
 	else if (ft_strcmp(b[0], "C") == 0)
 		assets->ceiling_color = ft_strdup(b[1]);
+	else
+		{
+			write(1, "s\n", 2);
+			exit(1);
+		}
 	free(b);
 }
 
@@ -87,8 +92,9 @@ static void
 	free(line);
 	ft_reader_destroy(&reader);
 	if (check_fill_data(&cub_file->assets))
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
-			check_fill_data(&cub_file->assets));
+		//ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
+		//	check_fill_data(&cub_file->assets));
+		exit(1);
 }
 
 t_cub_file
@@ -98,11 +104,12 @@ t_cub_file
 	t_stream	stream;
 
 	if (!validate_file_extension(path))
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
-			"Wrong extension (must be .cub)\n");
+		//ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
+		//	"Wrong extension (must be .cub)\n");
+		exit(1);
 	stream = ft_stream_open_fd(open(path, O_RDONLY), STREAM_MODE_I, true);
 	if (!ft_stream_is_valid(&stream))
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
+		exit(1); //ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
 	cub_file.map = map_create();
 	cub_file.assets = (t_assets){0};
 	init_map(&cub_file, &stream);

@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_print.c                                        :+:      :+:    :+:   */
+/*   check_map.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 22:37:54 by drohanne         ###   ########.fr       */
+/*   Created: 2022/03/15 21:45:47 by drohanne          #+#    #+#             */
+/*   Updated: 2022/03/15 22:41:02 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map.h>
+#ifndef CHECK_MAP_H
+# define CHECK_MAP_H
 
-#include <libft/vector/vector.h>
-#include <libft/io/printf.h>
+# include <cub3d/map.h>
 
 void
-	map_print(t_map *map)
-{
-	size_t	i;
-	size_t	j;
+	check_map(t_map *map);
+bool
+	validate_map_char(char c);
 
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			ft_printf("%c", map_get(map, j, i));
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-}
+#endif
