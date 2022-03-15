@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 01:37:06 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:04:12 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #include <cub3d/parser.h>
 
 #include <libft/string/string.h>
-#include <libft/io/printf.h>
 #include <libft/memory/memory.h>
 #include <libft/io/reader.h>
 #include <libft/io/fdstream.h>
@@ -65,7 +64,6 @@ static void
 		assets->ceiling_color = ft_strdup(b[1]);
 	free(b);
 }
-
 
 static void
 	init_map(t_cub_file *cub_file, t_stream *istream)
