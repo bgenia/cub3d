@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 21:50:24 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/15 15:51:25 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,11 @@ int
 
 	if (key == XK_q)
 	{
-		direction = vec_rotate(direction, -(M_PI * 0.05));
+		direction = vec_rotate(direction, -(M_PI * 0.01));
 	}
 	if (key == XK_e)
 	{
-		direction = vec_rotate(direction, (M_PI * 0.05));
+		direction = vec_rotate(direction, (M_PI * 0.01));
 	}
 
 
@@ -124,6 +124,8 @@ int
 	t_double2 back_collider = vec_rotate(front_collider, 180 * DEG2RAD);
 	t_double2 left_collider = vec_rotate(front_collider, 90 * DEG2RAD);
 	t_double2 right_collider = vec_rotate(front_collider, -90 * DEG2RAD);
+
+	t_double2 side_dir = vec_rotate(direction, M_PI / 2);
 
 
 	if (key == XK_w)
@@ -153,8 +155,8 @@ int
 		)
 			return 0;
 
-		position.x -= direction.x * SPEED;
-		position.y += direction.y * SPEED;
+		position.x -= side_dir.x * SPEED;
+		position.y -= side_dir.y * SPEED;
 	}
 	if (key == XK_d)
 	{
@@ -163,8 +165,8 @@ int
 		)
 			return 0;
 
-		position.x += direction.x * SPEED;
-		position.y -= direction.y * SPEED;
+		position.x += side_dir.x * SPEED;
+		position.y += side_dir.y * SPEED;
 	}
 	return (0);
 }
@@ -196,28 +198,32 @@ void
 }
 
 void
-	draw3d(t_image *image, t_ray *ray, int ray_index, int ray_count)
+	draw3d(t_image *image, t_ray *ray, double fov, int ray_index, int ray_count)
 {
+	double vfov = 2 * atan(tan(fov * DEG2RAD / 2) * ((double)image->height / (double)image->width));
+
 	int column_width = image->width / ray_count;
 
-	int colomn_height = image->height / ray->length;
+	// int column_height = image->height / ray->length;
+	// int column_height = image->height / ray->length / (fov / 60) * ((double)image->width / (double)image->height);
+	int column_height = image->height / ray->length / vfov;
 
-	double texture_step = (double)texture.height / (double)colomn_height;
+	double texture_step = (double)texture.height / (double)column_height;
 	double texture_offset = 0;
 
-	if ((size_t)colomn_height > image->height)
+	if ((size_t)column_height > image->height)
 	{
-		texture_offset = (colomn_height - image->height) / 2;
-		colomn_height = image->height;
+		texture_offset = (column_height - image->height) / 2;
+		column_height = image->height;
 	}
 
 
 	int column_x = column_width * ray_index;
-	int column_y = image->height / 2 - colomn_height / 2;
+	int column_y = image->height / 2 - column_height / 2;
 
 	// ft_printf("Col: %d %d %d %d\n", column_width, colomn_height, column_x, column_y);
 
-	(void)texture_offset;
+	(void)texture_offset, (void)fov;
 
 	double texture_y = texture_offset * texture_step;
 
@@ -232,11 +238,11 @@ void
 	}
 
 
-	image_fill_rect(image, CEILING_COLOR, ft_int2(column_x, 0), ft_int2(column_x + column_width, image->height / 2));
-	image_fill_rect(image, FLOOR_COLOR, ft_int2(column_x, image->height / 2), ft_int2(column_x + column_width, image->height));
+	image_fill_rect(image, CEILING_COLOR, ft_int2(column_x, 0), ft_int2(column_x + column_width, image->height / 2 - column_height / 2));
+	image_fill_rect(image, FLOOR_COLOR, ft_int2(column_x, image->height / 2 + column_height / 2), ft_int2(column_x + column_width, image->height));
 
 	int y = 0;
-	while (y < colomn_height)
+	while (y < column_height)
 	{
 		t_color color = *image_get_pixel(&texture, texture_x, (size_t)texture_y);
 
@@ -268,7 +274,7 @@ void
 {
 	int	i;
 
-	double fov = 60;
+	double fov = 75;
 	double angle = -fov / 2;
 	double change = fov / (image->width / COLUMN_WIDTH);
 
@@ -287,7 +293,7 @@ void
 
 		// image_draw_line(image, brush_circle(0xFF0000, 0), position, ft_int2( ray.position.x * TILE_SIZE, ray.position.y * TILE_SIZE ));
 
-		draw3d(image, &ray, i, fov / change);
+		draw3d(image, &ray, fov, i, fov / change);
 
 		i++;
 		angle += change;
