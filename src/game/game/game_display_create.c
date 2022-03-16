@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:26:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 17:45:41 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 10:59:13 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_game_display
 	t_game_display	display;
 
 	display.mlx = mlx_init();
+	mlx_do_key_autorepeatoff(display.mlx);
 	if (!display.mlx)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
 			"cub3d: fatal: unable to initialize mlx\n");
