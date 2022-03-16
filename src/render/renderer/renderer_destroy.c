@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:43:02 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 16:45:10 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 11:08:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void
 	renderer_destroy(t_renderer *renderer)
 {
 	image_destroy(&renderer->frames[0]);
-	image_destroy(&renderer->frames[0]);
+	image_destroy(&renderer->frames[1]);
 }
