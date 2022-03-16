@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 15:22:25 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 18:59:46 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int
 	if (key == XK_s || key == XK_Cyrillic_yeru)
 		state->player.movement_direction.y = -1;
 	if (key == XK_d || key == XK_Cyrillic_ve)
-		state->player.movement_direction.x = 1;
-	if (key == XK_a || key == XK_Cyrillic_ef)
 		state->player.movement_direction.x = -1;
+	if (key == XK_a || key == XK_Cyrillic_ef)
+		state->player.movement_direction.x = 1;
 	if (key == XK_e || key == XK_Cyrillic_u)
 		state->player.rotation_direction = 1;
 	if (key == XK_q || key == XK_Cyrillic_i_macron)
