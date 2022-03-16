@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 11:55:12 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 18:29:51 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static t_double2
 	return (direction);
 }
 
+// FIXME: Cringe formatting at 62,63
 static void
 	_find_player(t_game_state *state)
 {
@@ -55,13 +56,14 @@ static void
 		while (j < state->map.width)
 		{
 			c = map_get(&state->map, j, i);
-			j++;
 			if (_is_player_char(c))
 			{
-				state->player.position = ft_double2(j, i);
+				state->player.position = \
+					ft_double2((double)j + .5, (double)i + .5);
 				state->player.direction = _get_player_direction(c);
 				state->map.vec_value[i][j] = '0';
 			}
+			j++;
 		}
 		i++;
 	}
