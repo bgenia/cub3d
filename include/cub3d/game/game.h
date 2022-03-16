@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 18:08:04 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 05:15:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <stdbool.h>
 
 # include <cub3d/asset_manager.h>
+# include <cub3d/map.h>
 # include <cub3d/render/renderer.h>
+# include <cub3d/parser.h>
 
 # include <libft/tuples.h>
 
@@ -50,9 +52,7 @@ typedef struct s_game_state
 		t_double2	position;
 		t_double2	direction;
 		t_double2	movement_direction;
-		double		movement_speed;
 		double		rotation_angle;
-		double		rotation_speed;
 	}				player;
 }	t_game_state;
 
@@ -66,5 +66,8 @@ game_setup(t_game_state *state, t_cub_file *cub_file);
 
 void
 game_loop(t_game_state *state);
+
+void
+game_update(t_game_state *state);
 
 #endif
