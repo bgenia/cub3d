@@ -6,7 +6,7 @@
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 22:15:29 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/16 22:08:59 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ static void
 	else if (ft_strcmp(b[0], "C") == 0)
 		assets->ceiling_color = ft_strdup(b[1]);
 	else
-		{
-			write(1, "s\n", 2);
-			exit(1);
-		}
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nExtra characters\n");
 	free(b);
 }
 
@@ -80,21 +77,21 @@ static void
 
 	reader = ft_reader_create(istream, 1024);
 	line = ft_reader_read_line(&reader);
-	while (reader.status == READER_LINE)
+	while (1 == 1)
 	{
 		if (line[0] && check_fill_data(&cub_file->assets))
 			try_parse_asset(&cub_file->assets, line);
 		else if (line[0] != '\0')
 			map_push_line(&cub_file->map, line);
 		free(line);
+		if (reader.status == READER_EOF)
+			break ;
 		line = ft_reader_read_line(&reader);
 	}
-	free(line);
 	ft_reader_destroy(&reader);
 	if (check_fill_data(&cub_file->assets))
-		//ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
-		//	check_fill_data(&cub_file->assets));
-		exit(1);
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
+			check_fill_data(&cub_file->assets));
 }
 
 t_cub_file
@@ -104,12 +101,11 @@ t_cub_file
 	t_stream	stream;
 
 	if (!validate_file_extension(path))
-		//ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
-		//	"Wrong extension (must be .cub)\n");
-		exit(1);
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
+			"Wrong extension (must be .cub)\n");
 	stream = ft_stream_open_fd(open(path, O_RDONLY), STREAM_MODE_I, true);
 	if (!ft_stream_is_valid(&stream))
-		exit(1); //ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
 	cub_file.map = map_create();
 	cub_file.assets = (t_assets){0};
 	init_map(&cub_file, &stream);
