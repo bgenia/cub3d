@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:28:22 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:31:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ static t_double2
 	return (direction);
 }
 
-// FIXME: Cringe formatting at 62,63
 static void
-	_find_player(t_game_state *state)
+	_place_player(t_game_state *state)
 {
 	size_t	i;
 	size_t	j;
@@ -58,8 +57,10 @@ static void
 			c = map_get(&state->map, j, i);
 			if (_is_player_char(c))
 			{
-				state->player.position = \
-					ft_double2((double)j + .5, (double)i + .5);
+				state->player.position = ft_double2(
+						(double)j + .5,
+						(double)i + .5
+						);
 				state->player.direction = _get_player_direction(c);
 			}
 			j++;
@@ -74,6 +75,6 @@ void
 	state->map = level->map;
 	state->asset_manager = asset_manager_create(state->display.mlx);
 	asset_manager_load_assets(&state->asset_manager, level->assets);
-	_find_player(state);
+	_place_player(state);
 	register_hooks(state);
 }
