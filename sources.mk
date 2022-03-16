@@ -1,4 +1,8 @@
 SRC@src := \
+	src/render/renderer/renderer_create_frame.c \
+	src/render/renderer/renderer_create.c \
+	src/render/renderer/renderer_destroy.c \
+	src/render/renderer/renderer_render_next_frame.c \
 	src/render/image/image_create.c \
 	src/render/image/image_destroy.c \
 	src/render/image/image_load_xpm_file.c \
@@ -35,6 +39,7 @@ SRC@src := \
 	src/vecmath/vec_scale.c \
 	src/vecmath/vec_distance.c \
 	src/parser/parse_cub_file.c \
+	src/parser/cub_file_destroy.c \
 	src/parser/validate_map_char.c \
 	src/parser/validate_file_extension.c \
 	src/map/map_create.c \
@@ -47,4 +52,17 @@ SRC@src := \
 	src/asset_manager/asset_manager_load_assets.c \
 	src/asset_manager/asset_manager_create.c \
 	src/asset_manager/asset_manager_free_assets.c \
+	src/game/render/game_render_next_frame.c \
+	src/game/hooks/handle_key_press.c \
+	src/game/hooks/register_hooks.c \
+	src/game/hooks/handle_exit.c \
+	src/game/hooks/handle_frame.c \
+	src/game/hooks/handle_key_release.c \
+	src/game/game/game_display_destroy.c \
+	src/game/game/game_loop.c \
+	src/game/game/game_destroy.c \
+	src/game/game/game_update.c \
+	src/game/game/game_setup.c \
+	src/game/game/game_display_create.c \
+	src/game/game/game_create.c \
 	src/main.c \
