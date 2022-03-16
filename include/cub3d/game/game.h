@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 15:22:10 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 17:53:18 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_game_settings
 	size_t	window_width;
 	size_t	window_height;
 	double	fov;
+	int		column_width;
 	bool	sync;
 }	t_game_settings;
 
@@ -37,8 +38,8 @@ typedef struct s_game_display
 	t_renderer		renderer;
 }	t_game_display;
 
-t_game_display
-game_display_create(t_game_settings settings);
+void
+game_display_init(t_game_display *display, t_game_settings settings);
 void
 game_display_destroy(t_game_display *display);
 
@@ -56,8 +57,8 @@ typedef struct s_game_state
 	}				player;
 }	t_game_state;
 
-t_game_state
-game_create(t_game_settings settings);
+void
+game_init(t_game_state *state, t_game_settings settings);
 void
 game_destroy(t_game_state *state);
 
