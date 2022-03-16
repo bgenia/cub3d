@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_display_create.c                              :+:      :+:    :+:   */
+/*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:26:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 10:59:13 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 17:53:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,9 @@
 
 #include <mlx.h>
 
-t_game_display
-	game_display_create(t_game_settings settings)
+void
+	game_init(t_game_state *state, t_game_settings settings)
 {
-	t_game_display	display;
-
-	display.mlx = mlx_init();
-	mlx_do_key_autorepeatoff(display.mlx);
-	if (!display.mlx)
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
-			"cub3d: fatal: unable to initialize mlx\n");
-	display.window = window_create(display.mlx, settings.window_width,
-			settings.window_height, "bgenia/drohanne:cub3d");
-	display.renderer = renderer_create(&display.window, settings.sync);
-	return (display);
+	*state = (t_game_state){.settings = settings};
+	game_display_init(&state->display, settings);
 }

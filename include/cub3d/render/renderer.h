@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:17:06 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 16:44:39 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 17:58:03 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_renderer
 	t_image		frames[2];
 }	t_renderer;
 
-t_renderer
-renderer_create(t_window *window, bool sync);
+void
+renderer_init(t_renderer *renderer, t_window *window, bool sync);
 void
 renderer_destroy(t_renderer *renderer);
 
