@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 19:20:36 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 22:42:09 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void
 			state->player.movement_direction.x * state->settings.movement_speed
 			);
 	movement = vec_add(straight_movement, side_movement);
+	movement = vec_scale(movement, state->player.shift_multiplier);
 	state->player.position = vec_add(state->player.position, movement);
 }
 

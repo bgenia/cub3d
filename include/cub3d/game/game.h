@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 19:16:18 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 22:40:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_game_settings
 	bool	sync;
 	double	movement_speed;
 	double	rotation_speed;
+	double	shift_multiplier;
 }	t_game_settings;
 
 typedef struct s_game_display
@@ -56,6 +57,7 @@ typedef struct s_game_state
 		t_double2	direction;
 		t_int2		movement_direction;
 		int			rotation_direction;
+		double		shift_multiplier;
 	}				player;
 }	t_game_state;
 
