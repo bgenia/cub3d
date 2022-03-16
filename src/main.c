@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 11:17:01 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 17:54:19 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static t_game_settings
 		.window_width = 960,
 		.window_height = 720,
 		.fov = 60,
+		.column_width = 1,
 		.sync = true
 	});
 }
@@ -46,7 +47,7 @@ int
 	if (argc > 2)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "cub3d: too many arguments\n");
 	cub_file = parse_cub_file(argv[1]);
-	game_state = game_create(_get_default_settings());
+	game_init(&game_state, _get_default_settings());
 	game_setup(&game_state, &cub_file);
 	game_loop(&game_state);
 	game_destroy(&game_state);
