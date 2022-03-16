@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 19:35:57 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 22:41:04 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int
 		state->player.rotation_direction = 1;
 	if (key == XK_q || key == XK_Cyrillic_shorti)
 		state->player.rotation_direction = -1;
+	if (key == XK_Shift_L)
+		state->player.shift_multiplier = state->settings.shift_multiplier;
 	return (0);
 }
