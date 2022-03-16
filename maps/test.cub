@@ -1,12 +1,18 @@
-NO ./pat_no
-SO ./pat_so
-EA ./pat_ea
-WE ./pat_we
+NO assets/textures/brick.xpm
+SO assets/textures/stone.xpm
+EA assets/textures/wood.xpm
+WE assets/textures/metal.xpm
 
-F 4,4,4
-C 45,5,5
+C 0,132,255
+F 45,5,5
 
-11S
-101
-000
-100
+1111111111
+1S01000001
+1001001101
+1011101001
+1000001101
+1000000001
+1011011001
+1010001101
+1010000001
+1111111111
