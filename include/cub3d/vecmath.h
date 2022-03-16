@@ -6,14 +6,18 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:58:42 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 20:43:09 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:38:39 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECMATH_H
 # define VECMATH_H
 
+# include <math.h>
+
 # include <libft/tuples.h>
+
+# define DEG2RAD 180 / M_PI
 
 double
 vec_dot(t_double2 a, t_double2 b);
