@@ -59,10 +59,10 @@ SRC@src := \
 	src/game/hooks/handle_frame.c \
 	src/game/hooks/handle_key_release.c \
 	src/game/game/game_display_destroy.c \
+	src/game/game/game_init.c \
 	src/game/game/game_loop.c \
 	src/game/game/game_destroy.c \
 	src/game/game/game_update.c \
+	src/game/game/game_display_init.c \
 	src/game/game/game_setup.c \
-	src/game/game/game_display_create.c \
-	src/game/game/game_create.c \
 	src/main.c \
