@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 05:15:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:22:10 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct s_game_state
 	struct s_player {
 		t_double2	position;
 		t_double2	direction;
-		t_double2	movement_direction;
-		double		rotation_angle;
+		t_int2		movement_direction;
+		int			rotation_direction;
 	}				player;
 }	t_game_state;
 
