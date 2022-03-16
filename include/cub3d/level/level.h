@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asset_manager_create.c                             :+:      :+:    :+:   */
+/*   level.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 19:47:23 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/14 01:14:34 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:25:59 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/assets.h>
+#ifndef LEVEL_H
+# define LEVEL_H
 
-t_asset_manager
-	asset_manager_create(void *mlx)
+# include <stdbool.h>
+
+# include <cub3d/level/map.h>
+# include <cub3d/level/assets.h>
+
+typedef struct s_level
 {
-	return ((t_asset_manager){.mlx = mlx});
-}
+	t_assets	assets;
+	t_map		map;
+}	t_level;
+
+bool
+validate_level_file_extension(char *file);
+
+bool
+validate_map_char(char c);
+
+t_level
+level_load_from_file(char *path);
+
+void
+level_destroy(t_level *file);
+
+#endif

@@ -6,11 +6,11 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:33:54 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:23:59 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/assets.h>
+#include <cub3d/level/assets.h>
 #include <cub3d/render/color.h>
 #include <cub3d/render/image.h>
 

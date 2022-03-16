@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_get.c                                          :+:      :+:    :+:   */
+/*   map_push_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:05:35 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 21:34:02 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 02:57:56 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map.h>
+#include <cub3d/level/map.h>
 
+#include <libft/string/string.h>
 #include <libft/vector/vector.h>
 
-char
-	map_get(t_map *map, size_t x, size_t y)
+void
+	map_push_line(t_map *map, char *line)
 {
-	char	*row;
+	size_t	length;
+	size_t	i;
 
-	if (y >= ft_vector_get_size(map->vec_value))
-		return (' ');
-	row = map->vec_value[y];
-	if (x >= ft_vector_get_size(row))
-		return (' ');
-	return (row[x]);
+	length = ft_strlen(line);
+	i = 0;
+	map_add_line(map);
+	while (i < length)
+	{
+		map_push_char(map, line[i]);
+		i++;
+	}
 }

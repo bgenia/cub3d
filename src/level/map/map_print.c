@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_destroy.c                                      :+:      :+:    :+:   */
+/*   map_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:57:08 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 01:23:24 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map.h>
+#include <cub3d/level/map.h>
 
 #include <libft/vector/vector.h>
+#include <libft/io/printf.h>
 
 void
-	map_destroy(t_map *map)
+	map_print(t_map *map)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < ft_vector_get_size(map->vec_value))
+	while (i < map->height)
 	{
-		ft_vector_free(map->vec_value[i]);
+		j = 0;
+		while (j < map->width)
+		{
+			ft_printf("%c", map_get(map, j, i));
+			j++;
+		}
+		ft_printf("\n");
 		i++;
 	}
-	ft_vector_free(map->vec_value);
 }

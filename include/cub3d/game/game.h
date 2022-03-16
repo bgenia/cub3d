@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:28:22 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include <stdbool.h>
 
-# include <cub3d/assets.h>
-# include <cub3d/map.h>
+# include <cub3d/level/assets.h>
+# include <cub3d/level/map.h>
 # include <cub3d/render/renderer.h>
-# include <cub3d/parser.h>
+# include <cub3d/level/level.h>
 
 # include <libft/tuples.h>
 
@@ -67,7 +67,7 @@ void
 game_destroy(t_game_state *state);
 
 void
-game_setup(t_game_state *state, t_cub_file *cub_file);
+game_setup(t_game_state *state, t_level *level);
 
 void
 game_loop(t_game_state *state);

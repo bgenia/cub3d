@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_create.c                                       :+:      :+:    :+:   */
+/*   map_get.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 01:23:13 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 03:05:35 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <math.h>
-
-#include <cub3d/map.h>
+#include <cub3d/level/map.h>
 
 #include <libft/vector/vector.h>
 
-t_map
-	map_create(void)
+char
+	map_get(t_map *map, size_t x, size_t y)
 {
-	t_map	map;
+	char	*row;
 
-	map = (t_map){.width = 0, .height = 0};
-	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
-	return (map);
+	if (y >= ft_vector_get_size(map->vec_value))
+		return (' ');
+	row = map->vec_value[y];
+	if (x >= ft_vector_get_size(row))
+		return (' ');
+	return (row[x]);
 }

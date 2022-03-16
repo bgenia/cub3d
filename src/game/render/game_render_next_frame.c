@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 05:14:22 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:02:33 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <cub3d/game/game.h>
 #include <cub3d/game/render.h>
 #include <cub3d/vecmath.h>
-#include <cub3d/map.h>
+#include <cub3d/level/map.h>
 #include <cub3d/render/raycasting.h>
 #include <cub3d/render/color.h>
 #include <cub3d/render/graphics.h>

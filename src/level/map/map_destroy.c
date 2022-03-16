@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_file_extension.c                          :+:      :+:    :+:   */
+/*   map_destroy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 01:11:59 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:36:33 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 02:57:08 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include <cub3d/level/map.h>
 
-#include <libft/string/string.h>
+#include <libft/vector/vector.h>
 
-bool
-	validate_file_extension(char *file)
+void
+	map_destroy(t_map *map)
 {
-	char	*extension;
+	size_t	i;
 
-	extension = ft_strrchr(file, '.');
-	return (extension && ft_streq(extension, ".cub"));
+	i = 0;
+	while (i < ft_vector_get_size(map->vec_value))
+	{
+		ft_vector_free(map->vec_value[i]);
+		i++;
+	}
+	ft_vector_free(map->vec_value);
 }
