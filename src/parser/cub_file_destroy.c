@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   cub_file_destroy.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 01:14:34 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 05:10:25 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/16 05:10:36 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/16 05:11:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include <stdlib.h>
 
-# include <stdbool.h>
-
-# include <cub3d/map.h>
-# include <cub3d/asset_manager.h>
-
-typedef struct s_cub_file
-{
-	t_assets	assets;
-	t_map		map;
-}	t_cub_file;
-
-bool
-validate_file_extension(char *file);
-
-bool
-validate_map_char(char c);
-
-t_cub_file
-parse_cub_file(char *path);
+#include <cub3d/parser.h>
+#include <cub3d/map.h>
 
 void
-cub_file_destroy(t_cub_file *file);
-
-#endif
+	cub_file_destroy(t_cub_file *file)
+{
+	free(file->assets.floor_color);
+	free(file->assets.ceiling_color);
+	free(file->assets.north_texture_path);
+	free(file->assets.south_texture_path);
+	free(file->assets.west_texture_path);
+	free(file->assets.east_texture_path);
+	map_destroy(&file->map);
+}
