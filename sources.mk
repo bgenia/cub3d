@@ -53,6 +53,8 @@ SRC@src := \
 	src/asset_manager/asset_manager_create.c \
 	src/asset_manager/asset_manager_free_assets.c \
 	src/game/render/game_render_next_frame.c \
+	src/game/render/game_render_column.c \
+	src/game/render/pick_texture.c \
 	src/game/hooks/handle_key_press.c \
 	src/game/hooks/register_hooks.c \
 	src/game/hooks/handle_exit.c \
