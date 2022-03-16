@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 18:29:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:02:29 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void
 				state->player.position = \
 					ft_double2((double)j + .5, (double)i + .5);
 				state->player.direction = _get_player_direction(c);
-				state->map.vec_value[i][j] = '0';
 			}
 			j++;
 		}
