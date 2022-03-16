@@ -1,8 +1,8 @@
 SRC@src := \
 	src/render/renderer/renderer_create_frame.c \
-	src/render/renderer/renderer_create.c \
 	src/render/renderer/renderer_destroy.c \
 	src/render/renderer/renderer_render_next_frame.c \
+	src/render/renderer/renderer_init.c \
 	src/render/image/image_create.c \
 	src/render/image/image_destroy.c \
 	src/render/image/image_load_xpm_file.c \
