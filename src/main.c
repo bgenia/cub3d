@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 17:54:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 19:25:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cub3d/render/renderer.h>
 #include <cub3d/game/game.h>
 #include <cub3d/game/hooks.h>
+#include <cub3d/game/render.h>
 
 #include <libft/tuples.h>
 #include <libft/utils.h>
@@ -32,6 +33,8 @@ static t_game_settings
 		.window_height = 720,
 		.fov = 60,
 		.column_width = 1,
+		.movement_speed = 5e-2,
+		.rotation_speed = 5e-2,
 		.sync = true
 	});
 }
