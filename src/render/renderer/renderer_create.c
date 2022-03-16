@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:30:35 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 16:42:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 05:15:58 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ t_renderer
 	renderer.frames[1] = renderer_create_frame(&renderer);
 	renderer.current_frame = &renderer.frames[0];
 	renderer.next_frame = &renderer.frames[1];
+	return (renderer);
 }
