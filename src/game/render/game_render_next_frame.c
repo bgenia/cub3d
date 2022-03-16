@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 05:14:22 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 19:15:27 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:09:10 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void
 	}
 }
 
+// FIXME: Remove hardcoded raycasting iteration limiter
 void
 	game_render_next_frame(t_game_state *state)
 {
@@ -155,7 +156,7 @@ void
 		/ (state->display.window.width / state->settings.column_width);
 	ray_direction = vec_rotate(state->player.direction, angle * DEG2RAD);
 	i = 0;
-	image_fill(state->display.renderer.current_frame, 0x000000);
+	// image_fill(state->display.renderer.current_frame, 0x000000);
 	// draw_map_2d(state);
 	while (angle < state->settings.fov / 2)
 	{
