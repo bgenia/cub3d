@@ -4,7 +4,7 @@ include maketools/add_library.mk
 
 NAME := cub3d
 
-SRC := $(call source_list,src)
+SRC := $(call source_list,$(SRC_DIR))
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
@@ -25,11 +25,10 @@ export FT_OPTIONS := FT_MALLOC_EXIT
 
 ifdef DEBUG_MODE
     export FT_OPTIONS := FT_MALLOC_ABORT
-    FT_TARGET := debug
 endif
 
 define .LIBRARIES
-lib/libft/libft.a:lib/libft/include:$(FT_TARGET)
+lib/libft/libft.a:lib/libft/include
 lib/libmlx/libmlx.a:lib/libmlx
 endef
 
