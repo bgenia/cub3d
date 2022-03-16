@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:51:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 06:44:39 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/16 23:58:39 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ typedef struct s_ray
 	double		length;
 }	t_ray;
 
+typedef bool	(*t_ray_hit_predicate_fn)(t_double2 position, void *arg);
+
 typedef struct s_ray_hit_predicate
 {
-	bool	(*predicate)(t_double2 position, void *arg);
-	void	*arg;
+	t_ray_hit_predicate_fn	predicate;
+	void					*arg;
 }	t_ray_hit_predicate;
 
 t_ray

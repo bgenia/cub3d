@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:58:42 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 18:47:50 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:01:26 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <math.h>
 
 # include <libft/tuples.h>
-
-# define DEG2RAD M_PI / 180
 
 double
 vec_dot(t_double2 a, t_double2 b);
