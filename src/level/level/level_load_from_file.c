@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_cub_file.c                                   :+:      :+:    :+:   */
+/*   level_load_from_file.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:27:29 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <cub3d/map.h>
-#include <cub3d/parser.h>
-#include <cub3d/assets.h>
-#include <cub3d/parser.h>
+#include <cub3d/level/map.h>
+#include <cub3d/level/level.h>
+#include <cub3d/level/assets.h>
 
 #include <libft/string/string.h>
 #include <libft/memory/memory.h>
@@ -27,7 +26,7 @@
 #include <libft/utils.h>
 
 static char
-	*check_fill_data(t_assets *assets)
+	*_check_fill_data(t_assets *assets)
 {
 	if (assets->north_texture_path == NULL)
 		return ("At least there is no NO");
@@ -45,7 +44,7 @@ static char
 }
 
 static void
-	try_parse_asset(t_assets *assets, char *line)
+	_try_parse_asset(t_assets *assets, char *line)
 {
 	char	**b;
 
@@ -66,7 +65,7 @@ static void
 }
 
 static void
-	init_map(t_cub_file *cub_file, t_stream *istream)
+	_init_map(t_level *level, t_stream *istream)
 {
 	t_reader	reader;
 	char		*line;
@@ -75,35 +74,35 @@ static void
 	line = ft_reader_read_line(&reader);
 	while (reader.status == READER_LINE)
 	{
-		if (line[0] && check_fill_data(&cub_file->assets))
-			try_parse_asset(&cub_file->assets, line);
+		if (line[0] && _check_fill_data(&level->assets))
+			_try_parse_asset(&level->assets, line);
 		else if (line[0] != '\0')
-			map_push_line(&cub_file->map, line);
+			map_push_line(&level->map, line);
 		free(line);
 		line = ft_reader_read_line(&reader);
 	}
 	free(line);
 	ft_reader_destroy(&reader);
-	if (check_fill_data(&cub_file->assets))
+	if (_check_fill_data(&level->assets))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
-			check_fill_data(&cub_file->assets));
+			_check_fill_data(&level->assets));
 }
 
-t_cub_file
-	parse_cub_file(char *path)
+t_level
+	level_load_from_file(char *path)
 {
-	t_cub_file	cub_file;
+	t_level		level;
 	t_stream	stream;
 
-	if (!validate_file_extension(path))
+	if (!validate_level_file_extension(path))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
 			"Wrong extension (must be .cub)\n");
 	stream = ft_stream_open_fd(open(path, O_RDONLY), STREAM_MODE_I, true);
 	if (!ft_stream_is_valid(&stream))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
-	cub_file.map = map_create();
-	cub_file.assets = (t_assets){0};
-	init_map(&cub_file, &stream);
+	level.map = map_create();
+	level.assets = (t_assets){0};
+	_init_map(&level, &stream);
 	ft_stream_close(&stream);
-	return (cub_file);
+	return (level);
 }

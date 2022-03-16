@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_file_destroy.c                                 :+:      :+:    :+:   */
+/*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 05:10:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 05:11:56 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/12 02:54:28 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/17 00:23:30 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <math.h>
 
-#include <cub3d/parser.h>
-#include <cub3d/map.h>
+#include <cub3d/level/map.h>
 
-void
-	cub_file_destroy(t_cub_file *file)
+#include <libft/vector/vector.h>
+
+t_map
+	map_create(void)
 {
-	free(file->assets.floor_color);
-	free(file->assets.ceiling_color);
-	free(file->assets.north_texture_path);
-	free(file->assets.south_texture_path);
-	free(file->assets.west_texture_path);
-	free(file->assets.east_texture_path);
-	map_destroy(&file->map);
+	t_map	map;
+
+	map = (t_map){.width = 0, .height = 0};
+	map.vec_value = ft_vector_alloc_empty(sizeof(*map.vec_value));
+	return (map);
 }

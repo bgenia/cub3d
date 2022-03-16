@@ -28,6 +28,20 @@ SRC@src := \
 	src/render/color/color_parse.c \
 	src/render/color/color_get_component.c \
 	src/render/color/color_multiply_components.c \
+	src/level/level/level_load_from_file.c \
+	src/level/level/validate_map_char.c \
+	src/level/level/level_destroy.c \
+	src/level/level/validate_level_file_extension.c \
+	src/level/assets/asset_manager_load_assets.c \
+	src/level/assets/asset_manager_create.c \
+	src/level/assets/asset_manager_free_assets.c \
+	src/level/map/map_create.c \
+	src/level/map/map_push_char.c \
+	src/level/map/map_print.c \
+	src/level/map/map_destroy.c \
+	src/level/map/map_get.c \
+	src/level/map/map_push_line.c \
+	src/level/map/map_add_line.c \
 	src/vecmath/vec_rotate.c \
 	src/vecmath/vec_direction_to.c \
 	src/vecmath/vec_length.c \
@@ -38,20 +52,6 @@ SRC@src := \
 	src/vecmath/vec_dot.c \
 	src/vecmath/vec_scale.c \
 	src/vecmath/vec_distance.c \
-	src/parser/parse_cub_file.c \
-	src/parser/cub_file_destroy.c \
-	src/parser/validate_map_char.c \
-	src/parser/validate_file_extension.c \
-	src/map/map_create.c \
-	src/map/map_push_char.c \
-	src/map/map_print.c \
-	src/map/map_destroy.c \
-	src/map/map_get.c \
-	src/map/map_push_line.c \
-	src/map/map_add_line.c \
-	src/asset_manager/asset_manager_load_assets.c \
-	src/asset_manager/asset_manager_create.c \
-	src/asset_manager/asset_manager_free_assets.c \
 	src/game/render/game_render_next_frame.c \
 	src/game/render/game_render_column.c \
 	src/game/render/pick_texture.c \
