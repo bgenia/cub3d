@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asset_manager.h                                    :+:      :+:    :+:   */
+/*   assets.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:54:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 19:47:41 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:10:19 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ASSET_MANAGER_H
-# define ASSET_MANAGER_H
+#ifndef ASSETS_H
+# define ASSETS_H
 
 # include <stdbool.h>
 

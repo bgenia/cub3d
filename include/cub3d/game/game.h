@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:40:35 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdbool.h>
 
-# include <cub3d/asset_manager.h>
+# include <cub3d/assets.h>
 # include <cub3d/map.h>
 # include <cub3d/render/renderer.h>
 # include <cub3d/parser.h>

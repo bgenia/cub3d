@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 18:04:12 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:10:47 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <cub3d/map.h>
 #include <cub3d/parser.h>
-#include <cub3d/asset_manager.h>
+#include <cub3d/assets.h>
 #include <cub3d/parser.h>
 
 #include <libft/string/string.h>
