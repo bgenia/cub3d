@@ -63,3 +63,6 @@ build/
 # Workspace settings
 
 .vscode/
+
+# Log files
+*.log
