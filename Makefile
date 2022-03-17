@@ -11,7 +11,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 
-LDLIBS += -lm -lz -lXext -lX11
+LDLIBS += -framework AppKit -framework OpenGL
 
 MODIFIERS := noflags
 
@@ -29,7 +29,7 @@ endif
 
 define .LIBRARIES
 lib/libft/libft.a:lib/libft/include
-lib/libmlx/libmlx.a:lib/libmlx
+lib/libmlx_mac/libmlx.a:lib/libmlx
 endef
 
 include maketools/add_libraries.mk

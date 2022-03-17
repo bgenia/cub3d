@@ -3,34 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   handle_key_release.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:43:06 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:49:11 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/game/game.h>
-
-#include <X11/keysym.h>
+#include <cub3d/game/hooks.h>
 
 #include <mlx.h>
 
 int
 	handle_key_release(int key, t_game_state *state)
 {
-	if (key == XK_Escape || key == XK_BackSpace)
-		mlx_loop_end(state->display.mlx);
-	if (key == XK_w || key == XK_Cyrillic_tse
-		|| key == XK_s || key == XK_Cyrillic_yeru)
+	if (key == 0x35 || key == 0x33)
+		handle_exit(state);
+	if (key == 0xd || key == 0x1)
 		state->player.movement_direction.y = 0;
-	if (key == XK_d || key == XK_Cyrillic_ve
-		|| key == XK_a || key == XK_Cyrillic_ef)
+	if (key == 0x0 || key == 0x2)
 		state->player.movement_direction.x = 0;
-	if (key == XK_e || key == XK_Cyrillic_u
-		|| key == XK_q || key == XK_Cyrillic_shorti)
+	if (key == 0x7c || key == 0x7b)
 		state->player.rotation_direction = 0;
-	if (key == XK_Shift_L)
+	if (key == 0x101)
 		state->player.shift_multiplier = 1;
 	return (0);
 }

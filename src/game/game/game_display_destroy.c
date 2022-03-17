@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_display_destroy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:26:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 17:51:51 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:40:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void
 {
 	renderer_destroy(&display->renderer);
 	window_destroy(&display->window);
-	mlx_destroy_display(display->mlx);
+	// mlx_destroy_display(display->mlx);
 	free(display->mlx);
 }

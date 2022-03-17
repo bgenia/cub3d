@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   handle_key_press.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:41:04 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:49:18 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/game/game.h>
 
-#include <X11/keysym.h>
-
 int
 	handle_key_press(int key, t_game_state *state)
 {
-	if (key == XK_w || key == XK_Cyrillic_tse)
+	if (key == 0xd)
 		state->player.movement_direction.y = 1;
-	if (key == XK_s || key == XK_Cyrillic_yeru)
+	if (key == 0x1)
 		state->player.movement_direction.y = -1;
-	if (key == XK_d || key == XK_Cyrillic_ve)
+	if (key == 0x2)
 		state->player.movement_direction.x = -1;
-	if (key == XK_a || key == XK_Cyrillic_ef)
+	if (key == 0x0)
 		state->player.movement_direction.x = 1;
-	if (key == XK_e || key == XK_Cyrillic_u)
+	if (key == 0x7c)
 		state->player.rotation_direction = 1;
-	if (key == XK_q || key == XK_Cyrillic_shorti)
+	if (key == 0x7b)
 		state->player.rotation_direction = -1;
-	if (key == XK_Shift_L)
+	if (key == 0x101)
 		state->player.shift_multiplier = state->settings.shift_multiplier;
 	return (0);
 }
