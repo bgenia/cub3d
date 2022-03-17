@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:28:02 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:11:57 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static t_game_settings
 		.window_height = 720,
 		.fov = 60,
 		.column_width = 1,
-		.movement_speed = 5e-2,
-		.rotation_speed = 5e-2,
+		.movement_speed = 3e-2,
+		.rotation_speed = 3e-2,
 		.shift_multiplier = 3,
 		.sync = true
 	});
