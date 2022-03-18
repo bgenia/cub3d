@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:51:23 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:37:39 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_image
 	image.mlx = mlx;
 	image.mlx_image = mlx_xpm_file_to_image(mlx, path, &width, &height);
 	if (!image.mlx_image)
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nFatal: "
-			"unable to load image from '%s'\n", path);
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
+			"Unable to load image from '%s'\n", path);
 	image.width = width;
 	image.height = height;
 	image.data = mlx_get_data_addr(image.mlx_image, &image.bits_per_pixel,
