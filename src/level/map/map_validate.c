@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   map_validate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:48:13 by drohanne          #+#    #+#             */
-/*   Updated: 2022/03/18 20:54:33 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:33:22 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/map.h>
-#include <cub3d/check_map.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-#include <libft/io/printf.h>
+#include <cub3d/level/map.h>
+
 #include <libft/string/string.h>
+#include <libft/utils.h>
 
-void	check_map(t_map *map)
+void
+	map_validate(t_map *map)
 {
 	size_t	i;
 	size_t	j;
@@ -29,12 +32,13 @@ void	check_map(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (!validate_map_char(map_get(map, j, i))
-				|| !validate_map_border(map, i, j, map_get(map, j, i)))
+			if (!validate_map_char(map_get(map, j, i)))
 				ft_exitf(STDERR_FILENO, EXIT_FAILURE,
 					"Error\nInvalid character in map\n");
-			if (ft_strchr("NSEW", map_get(map, j, i))
-				&& map_get(map, j, i) != '\0')
+			if (!validate_map_border(map, i, j, map_get(map, j, i)))
+				ft_exitf(STDERR_FILENO, EXIT_FAILURE,
+					"Error\nUnclosed map\n");
+			if (ft_strchr("NSEW", map_get(map, j, i)))
 				count_heroes++;
 			j++;
 		}

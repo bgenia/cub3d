@@ -29,16 +29,18 @@ SRC@src := \
 	src/render/color/color_get_component.c \
 	src/render/color/color_multiply_components.c \
 	src/level/level/level_load_from_file.c \
-	src/level/level/validate_map_char.c \
 	src/level/level/level_destroy.c \
 	src/level/level/validate_level_file_extension.c \
 	src/level/assets/asset_manager_load_assets.c \
 	src/level/assets/asset_manager_create.c \
 	src/level/assets/asset_manager_free_assets.c \
+	src/level/map/validate_map_border.c \
 	src/level/map/map_create.c \
 	src/level/map/map_push_char.c \
 	src/level/map/map_print.c \
 	src/level/map/map_destroy.c \
+	src/level/map/map_validate.c \
+	src/level/map/validate_map_char.c \
 	src/level/map/map_get.c \
 	src/level/map/map_push_line.c \
 	src/level/map/map_add_line.c \

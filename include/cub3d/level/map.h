@@ -6,13 +6,14 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 02:30:58 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/14 01:38:07 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 22:17:29 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
+# include <stdbool.h>
 # include <stddef.h>
 
 typedef struct s_map
@@ -39,5 +40,13 @@ map_get(t_map *map, size_t x, size_t y);
 
 void
 map_print(t_map *map);
+
+void
+map_validate(t_map *map);
+
+bool
+validate_map_char(char c);
+bool
+validate_map_border(t_map *map, size_t i, size_t j, char c);
 
 #endif
