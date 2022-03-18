@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 05:00:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 18:04:24 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ t_window
 	window.mlx_window = mlx_new_window(mlx, width, height, title);
 	if (!window.mlx_window)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
-			"cub3d: fatal: unable to create mlx window\n");
+			"Error\nUnable to create mlx window\n");
 	return (window);
 }

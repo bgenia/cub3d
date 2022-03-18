@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:26:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 17:58:25 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void
 	mlx_do_key_autorepeatoff(display->mlx);
 	if (!display->mlx)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
-			"cub3d: fatal: unable to initialize mlx\n");
+			"Error\nUnable to initialize mlx\n");
 	display->window = window_create(display->mlx, settings.window_width,
 			settings.window_height, "bgenia/drohanne:cub3d");
 	renderer_init(&display->renderer, &display->window, settings.sync);
