@@ -6,7 +6,7 @@
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:48:13 by drohanne          #+#    #+#             */
-/*   Updated: 2022/03/16 23:40:50 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:46:29 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,53 +21,99 @@
 #include <libft/string/string.h>
 
 #include <stdio.h>
+/*
+static bool	cycle_end(t_cycle temp)
+{
+	while (temp.j < temp.map->width)
+	{
+		if (map_get(temp.map, temp.j, temp.save_i) == ' '
+			|| map_get(temp.map, temp.j, temp.i) == '\0')
+			return (false);
+		if (map_get(temp.map, temp.j, temp.save_i) == '1')
+			return (true);
+		temp.j++;
+	}
+	return (false);
+}
+
+static bool	pre_cycle_end(t_cycle temp)
+{
+	while (temp.j >= 0 && temp.cycle == 2)
+	{
+		if (map_get(temp.map, temp.j, temp.save_i) == ' ' || map_get(temp.map, temp.j, temp.i) == '\0')
+			return (false);
+		if (map_get(temp.map, temp.j, temp.save_i) == '1')
+		{
+			temp.j = temp.save_j;
+			return (cycle_end(temp));
+		}
+		temp.j--;
+	}
+	return (false);
+}
 
 static bool	validate_map_border(t_map *map, size_t i, size_t j, char c)
 {
-	size_t	save_i;
-	size_t	save_j;
+	t_cycle	temp;
 
-	if (c == '\0')
+	if (c == '\0' || c == '1' || c == ' ')
 		return (true);
+	temp.cycle = 0;
+	temp.map = map;
+	temp.j = j;
+	temp.i = i;
 	if (ft_strchr("0NSEW", c))
 	{
 		if (i == 0 || i == map->height - 1 || j == 0 || j == map->width - 1)
 			return (false);
-		save_i = i;
-		while (i >= 0)
+		temp.save_i = i;
+		while (temp.i >= 0 && temp.cycle == 0)
 		{
-			if (map_get(map, j, i) == '1')
+			if (map_get(temp.map, temp.j, temp.i) == ' ' || map_get(temp.map, temp.j, temp.i) == '\0')
+				return (false);
+			if (map_get(temp.map, temp.j, temp.i) == '1')
 			{
-				i = save_i;
-				while (i < map->height)
+				temp.cycle++;
+				temp.i = temp.save_i;
+				while (temp.i < temp.map->height && temp.cycle == 1)
 				{
-					if (map_get(map, j, i) == '1')
+					if (map_get(temp.map, temp.j, temp.i) == ' ' || map_get(temp.map, temp.j, temp.i) == '\0')
+						return (false);
+					if (map_get(temp.map, temp.j, temp.i) == '1')
 					{
-						save_j = j;
-						while (j >= 0)
-						{
-							if (map_get(map, j, save_i) == '1')
-							{
-								j = save_j;
-								while (j < map->width)
-								{
-									if (map_get(map, j, save_i) == '1')
-										return (true);
-									j++;
-								}
-								return (false);
-							}
-							j--;
-						}
+						temp.cycle++;
+						temp.save_j = temp.j;
+						return (pre_cycle_end(temp));
 					}
-					i++;
+					temp.i++;
 				}
 			}
-			i--;
+			temp.i--;
 		}
+	}
+	return (false);
+}
+*/
+
+static bool	validate_map_border(t_map *map, size_t i, size_t j, char c)
+{
+	if (c != '1' && c != ' ' && c != '\0')
+	{
+		if (ft_strchr("01NSEW", map_get(map, j + 1, i))
+			&& map_get(map, j + 1, i) != '\0'
+			&& ft_strchr("01NSEW", map_get(map, j - 1, i))
+			&& map_get(map, j - 1, i) != '\0'
+			&& ft_strchr("01NSEW", map_get(map, j, i + 1))
+			&& map_get(map, j, i + 1) != '\0'
+			&& ft_strchr("01NSEW", map_get(map, j, i - 1))
+			&& map_get(map, j, i - 1) != '\0')
+			return (true);
+		else
+			return (false);
 	}
 	return (true);
 }
+
 
 void	check_map(t_map *map)
 {
