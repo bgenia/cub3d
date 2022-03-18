@@ -6,15 +6,15 @@
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 01:13:03 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/15 22:18:22 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:54:57 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cub3d/check_map.h>
+
 #include <stdbool.h>
 
-#include <libft/string/string.h>
-
-const static char *g_map_chars = " 01NSEW";
+const static char	*g_map_chars = " 01NSEW";
 
 bool
 	validate_map_char(char c)

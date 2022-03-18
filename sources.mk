@@ -12,6 +12,7 @@ SRC@src := \
 	src/parser/validate_file_extension.c \
 	src/check_map/check_map.c \
 	src/check_map/validate_map_char.c \
+	src/check_map/validate_map_border.c \
 	src/render/color/color_get_component.c \
 	src/render/color/color_multiply_components.c \
 	src/render/color/color_create.c \
