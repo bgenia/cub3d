@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:27:29 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 22:13:52 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static void
 		assets->floor_color = ft_strdup(b[1]);
 	else if (ft_strcmp(b[0], "C") == 0)
 		assets->ceiling_color = ft_strdup(b[1]);
+	else
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nExtra characters\n");
 	free(b);
 }
 
@@ -72,16 +74,17 @@ static void
 
 	reader = ft_reader_create(istream, 1024);
 	line = ft_reader_read_line(&reader);
-	while (reader.status == READER_LINE)
+	while (1 == 1)
 	{
 		if (line[0] && _check_fill_data(&level->assets))
 			_try_parse_asset(&level->assets, line);
 		else if (line[0] != '\0')
 			map_push_line(&level->map, line);
 		free(line);
+		if (reader.status == READER_EOF)
+			break ;
 		line = ft_reader_read_line(&reader);
 	}
-	free(line);
 	ft_reader_destroy(&reader);
 	if (_check_fill_data(&level->assets))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
