@@ -6,7 +6,7 @@
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 11:28:47 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:08:59 by drohanne         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:55:24 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static void
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nExtra characters\n");
 	free(b);
 }
-
 
 static void
 	init_map(t_cub_file *cub_file, t_stream *istream)
