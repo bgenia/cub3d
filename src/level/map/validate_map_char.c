@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 01:13:03 by bgenia            #+#    #+#             */
-<<<<<<< HEAD:src/level/level/validate_map_char.c
-/*   Updated: 2022/03/17 00:02:56 by bgenia           ###   ########.fr       */
-=======
-/*   Updated: 2022/03/18 20:54:57 by drohanne         ###   ########.fr       */
->>>>>>> feature/parser-merge:src/check_map/validate_map_char.c
+/*   Updated: 2022/03/18 22:32:34 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/check_map.h>
-
 #include <stdbool.h>
+
+#include <cub3d/level/map.h>
+
+#include <libft/string/string.h>
 
 const static char	*g_map_chars = " 01NSEW";
 

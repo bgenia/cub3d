@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 22:13:52 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 22:41:39 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,17 @@ static void
 	}
 	ft_reader_destroy(&reader);
 	if (_check_fill_data(&level->assets))
+	{
+		level_destroy(level);
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n%s\n",
 			_check_fill_data(&level->assets));
+	}
+}
+
+static void
+	_validate_level(t_level *level)
+{
+	map_validate(&level->map);
 }
 
 t_level
@@ -107,5 +116,6 @@ t_level
 	level.assets = (t_assets){0};
 	_init_map(&level, &stream);
 	ft_stream_close(&stream);
+	_validate_level(&level);
 	return (level);
 }
