@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 04:10:40 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:37:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_image
 	image = (t_image){.mlx = mlx, .width = width, .height = height};
 	image.mlx_image = mlx_new_image(mlx, width, height);
 	if (!image.mlx_image)
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nFatal: "
-			"unable to create mlx image\n");
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
+			"Unable to create mlx image\n");
 	image.data = mlx_get_data_addr(
 			image.mlx_image,
 			&image.bits_per_pixel,
