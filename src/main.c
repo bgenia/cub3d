@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 22:54:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int
 	t_game_state	game_state;
 
 	if (argc < 2)
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "cub3d: missing .cub file\n");
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nMissing .cub file\n");
 	if (argc > 2)
-		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "cub3d: too many arguments\n");
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nToo many arguments\n");
 	level = level_load_from_file(argv[1]);
 	game_init(&game_state, _get_default_settings());
 	game_setup(&game_state, &level);
