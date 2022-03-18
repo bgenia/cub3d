@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map_char.c                                :+:      :+:    :+:   */
+/*   check_map.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 01:13:03 by bgenia            #+#    #+#             */
-<<<<<<< HEAD:src/level/level/validate_map_char.c
-/*   Updated: 2022/03/17 00:02:56 by bgenia           ###   ########.fr       */
-=======
-/*   Updated: 2022/03/18 20:54:57 by drohanne         ###   ########.fr       */
->>>>>>> feature/parser-merge:src/check_map/validate_map_char.c
+/*   Created: 2022/03/15 21:45:47 by drohanne          #+#    #+#             */
+/*   Updated: 2022/03/18 20:53:08 by drohanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/check_map.h>
+#ifndef CHECK_MAP_H
+# define CHECK_MAP_H
 
-#include <stdbool.h>
+# include <cub3d/map.h>
+# include <stdbool.h>
+# include <libft/utils.h>
+# include <libft/string/string.h>
 
-const static char	*g_map_chars = " 01NSEW";
-
+void
+	check_map(t_map *map);
 bool
-	validate_map_char(char c)
-{
-	if (ft_strchr(g_map_chars, c))
-		return (true);
-	return (false);
-}
+	validate_map_char(char c);
+bool
+	validate_map_border(t_map *map, size_t i, size_t j, char c);
+
+#endif
