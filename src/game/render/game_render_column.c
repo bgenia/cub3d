@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:02:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/19 11:21:37 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_column_render_vars
 	double		texture_step;
 	double		texture_offset;
 	t_double2	texture_position;
+	t_int2		texture_resolution;
+	t_double2	texture_scaling;
 }	t_column_render_vars;
 
 static t_int2
@@ -56,16 +58,14 @@ static t_double2
 
 	texture_position.y = vars->texture_offset * vars->texture_step;
 	if (ray->type == RAY_VERTICAL)
-		texture_position.x = (double)vars->texture->width
+		texture_position.x = (double)vars->texture_resolution.x
 			* (ray->position.x - floor(ray->position.x));
 	else
-		texture_position.x = (double)vars->texture->width
+		texture_position.x = (double)vars->texture_resolution.x
 			* (ray->position.y - floor(ray->position.y));
 	if ((ray->type == RAY_VERTICAL && ray->direction.y > 0)
 		|| (ray->type == RAY_HORIZONTAL && ray->direction.x < 0))
-	{
-		texture_position.x = vars->texture->width - 1 - texture_position.x;
-	}
+		texture_position.x = vars->texture_resolution.x - 1 - texture_position.x;
 	return (texture_position);
 }
 
@@ -100,26 +100,22 @@ static void
 {
 	t_color	color;
 	int		y;
+	double	y_scaling;
 
+	y_scaling = (double)vars->texture_resolution.y / (double)vars->texture->height;
 	y = 0;
 	while (y < vars->column_dimensions.y)
 	{
-		color = *image_get_pixel(
-				vars->texture,
-				vars->texture_position.x,
-				vars->texture_position.y
-				);
+		color = *image_get_pixel(vars->texture,
+				ft_mapd(floor(vars->texture_position.x), vars->texture_resolution.x, vars->texture->width),
+				ft_mapd(floor(vars->texture_position.y * y_scaling), vars->texture_resolution.y, vars->texture->height));
 		if (ray->type == RAY_VERTICAL)
 			color = color_multiply_all_components(color, 0.5);
-		image_fill_rect(
-			state->display.renderer.next_frame,
-			color,
+		image_fill_rect(state->display.renderer.next_frame, color,
 			ft_int2(vars->column_position.x, vars->column_position.y + y),
 			ft_int2(
 				vars->column_position.x + vars->column_dimensions.x,
-				vars->column_position.y + (y + 1)
-				)
-			);
+				vars->column_position.y + (y + 1)));
 		y++;
 		vars->texture_position.y += vars->texture_step;
 	}
@@ -140,6 +136,7 @@ void
 	vars.texture_step = \
 		(double)vars.texture->height / (double)vars.column_dimensions.y;
 	vars.texture_offset = 0;
+	vars.texture_resolution = state->settings.texture_resolution;
 	if ((size_t)vars.column_dimensions.y > state->display.window.height)
 	{
 		vars.texture_offset = \

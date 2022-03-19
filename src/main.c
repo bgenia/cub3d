@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 23:35:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/19 19:26:23 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static t_game_settings
 		.window_height = 720,
 		.fov = 60,
 		.column_width = 1,
+		.texture_resolution = ft_int2(8, 8),
 		.movement_speed = 3e-2,
 		.rotation_speed = 3e-2,
 		.shift_multiplier = 3,
@@ -56,4 +57,5 @@ int
 	game_loop(&game_state);
 	game_destroy(&game_state);
 	level_destroy(&level);
+	return (EXIT_SUCCESS);
 }

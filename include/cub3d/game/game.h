@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:28:22 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/19 10:55:01 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@
 
 # include <libft/tuples.h>
 
+# define RES_AUTO_MIN -1
+# define RES_AUTO_MAX 0
+
 typedef struct s_game_settings
 {
 	size_t	window_width;
 	size_t	window_height;
 	double	fov;
 	int		column_width;
+	t_int2	texture_resolution;
 	bool	sync;
 	double	movement_speed;
 	double	rotation_speed;
