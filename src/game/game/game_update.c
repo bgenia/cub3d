@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 22:42:09 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 22:51:32 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ static void
 	t_double2	movement;
 
 	straight_movement = state->player.direction;
-	straight_movement = vec_scale(
-			straight_movement,
+	straight_movement = vec_scale(straight_movement,
 			state->player.movement_direction.y * state->settings.movement_speed
 			);
+	straight_movement = vec_scale(straight_movement,
+			state->display.renderer.frame_delta);
 	side_movement = vec_rotate(state->player.direction, -M_PI / 2);
-	side_movement = vec_scale(
-			side_movement,
-			state->player.movement_direction.x * state->settings.movement_speed
-			);
+	side_movement = vec_scale(side_movement, state->player.movement_direction.x
+			* state->settings.movement_speed);
+	side_movement = vec_scale(side_movement,
+			state->display.renderer.frame_delta);
 	movement = vec_add(straight_movement, side_movement);
 	movement = vec_scale(movement, state->player.shift_multiplier);
 	state->player.position = vec_add(state->player.position, movement);
@@ -45,6 +46,7 @@ static void
 	state->player.direction = vec_rotate(
 			state->player.direction,
 			state->settings.rotation_speed * state->player.rotation_direction
+			* state->display.renderer.frame_delta
 			);
 }
 
