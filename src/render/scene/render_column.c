@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 22:32:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 23:33:21 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static t_double2
 		texture_position.x = (double)vars->texture->width
 			* (ray->position.y - floor(ray->position.y));
 	if ((ray->type == RAY_HORIZONTAL && ray->direction.y > 0)
-		|| (ray->type == RAY_HORIZONTAL && ray->direction.x < 0))
+		|| (ray->type == RAY_VERTICAL && ray->direction.x < 0))
 		texture_position.x = vars->texture->width - 1 - texture_position.x;
 	return (texture_position);
 }
@@ -112,7 +112,7 @@ static void
 				vars->texture_position.x,
 				vars->texture_position.y
 				);
-		if (ray->type == RAY_HORIZONTAL)
+		if (ray->type == RAY_HORIZONTAL && state->settings.shading)
 			color = color_brighten(color, 0.5);
 		image_fill_rect(
 			state->display.renderer.next_frame,

@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 19:48:33 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 23:33:01 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_game_settings
 	size_t	window_height;
 	double	fov;
 	int		column_width;
+	bool	shading;
 	bool	sync;
 	double	movement_speed;
 	double	rotation_speed;
