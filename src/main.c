@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:36:44 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 23:48:50 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_game_settings
 		.shift_multiplier = 3,
 		.sync = true,
 		.minimap = {
-			.position = ft_int2(25, 450),
+			.position = ft_int2(20, 450),
 			.size = 250,
 			.scale = 20,
 			.ray_count = 30
