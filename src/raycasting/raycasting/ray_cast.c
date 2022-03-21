@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 19:14:54 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 22:29:16 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void
 	{
 		if (predicate.predicate(ray->position, predicate.arg))
 		{
-			ray->hit = false;
+			ray->hit = true;
 			break ;
 		}
 		ray->position = vec_add(ray->position, ray->offset);
