@@ -6,11 +6,13 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:44:57 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 22:41:00 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 23:28:33 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+#include <stdint.h>
+#include <time.h>
 #include <sys/time.h>
 
 #include <cub3d/graphics/image.h>
@@ -19,14 +21,26 @@
 
 #include <mlx.h>
 
+static uint64_t
+	_get_time_ms(void)
+{
+	struct timeval	timeval;
+	uint64_t		result;
+
+	gettimeofday(&timeval, NULL);
+	result = timeval.tv_sec * 1000;
+	result += timeval.tv_usec / 1000;
+	return (result);
+}
+
 static void
 	_update_frame_time(t_renderer *renderer)
 {
-	struct timeval	timeval;
+	uint64_t	time;
 
-	gettimeofday(&timeval, NULL);
-	renderer->frame_delta = (timeval.tv_usec - renderer->prev_frame_time) / 1e6;
-	renderer->prev_frame_time = timeval.tv_usec;
+	time = _get_time_ms();
+	renderer->frame_delta = (double)(time - renderer->prev_frame_time) / 1000;
+	renderer->prev_frame_time = time;
 }
 
 void
