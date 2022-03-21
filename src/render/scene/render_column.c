@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 18:52:39 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 22:32:48 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static t_int2
 	t_int2	column_dimensions;
 	double	vfov;
 
+	if (!ray->hit)
+		return (ft_int2(state->display.window.width / ray_count, 0));
 	vfov = 2 * atan(tan(ft_deg2rad(state->settings.fov) / 2)
 			* ((double)state->display.window.height
 				/ (double)state->display.window.width));
