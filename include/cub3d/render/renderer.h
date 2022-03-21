@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:17:06 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 17:58:03 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 22:24:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define RENDERER_H
 
 # include <stdbool.h>
+# include <sys/time.h>
 
 # include <cub3d/graphics/image.h>
 # include <cub3d/graphics/window.h>
@@ -26,6 +27,8 @@ typedef struct s_renderer
 	t_image		*current_frame;
 	t_image		*next_frame;
 	t_image		frames[2];
+	suseconds_t	prev_frame_time;
+	double		frame_delta;
 }	t_renderer;
 
 void
