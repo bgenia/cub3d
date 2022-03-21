@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:02:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/20 09:53:03 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ static void
 				vars->texture_position.y
 				);
 		if (ray->type == RAY_VERTICAL)
-			color = color_multiply_all_components(color, 0.5);
+			color = color_brighten(color, 0.5);
 		image_fill_rect(
 			state->display.renderer.next_frame,
 			color,

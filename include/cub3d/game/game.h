@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:28:22 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 11:46:40 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_game_settings
 	double	movement_speed;
 	double	rotation_speed;
 	double	shift_multiplier;
+	struct s_minimap_settings {
+		t_int2	position;
+		int		size;
+		double	scale;
+		int		ray_count;
+	}		minimap;
 }	t_game_settings;
 
 typedef struct s_game_display
@@ -39,6 +45,8 @@ typedef struct s_game_display
 	void			*mlx;
 	t_window		window;
 	t_renderer		renderer;
+	t_image			minimap;
+	t_image			minimap_mask;
 }	t_game_display;
 
 void
