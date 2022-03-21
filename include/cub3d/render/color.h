@@ -6,12 +6,14 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:44:34 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/13 19:40:29 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 12:47:21 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
 # define COLOR_H
+
+# include <libft/tuples.h>
 
 typedef unsigned char \
 	t_color_component;
@@ -19,20 +21,16 @@ typedef unsigned char \
 typedef unsigned int \
 	t_color;
 
-t_color
-color_argb(
-	t_color_component a,
-	t_color_component r,
-	t_color_component g,
-	t_color_component b
-	);
+t_int4
+color_decompose(t_color color);
 
 t_color
-color_rgb(
-	t_color_component r,
-	t_color_component g,
-	t_color_component b
-	);
+color_compose(t_int4 color_struct);
+
+t_double4
+color_decompose_d(t_color color);
+t_color
+color_compose_d(t_double4 color);
 
 t_color
 color_parse(char *color_string);
@@ -47,8 +45,8 @@ t_color_component
 color_get_blue(t_color color);
 
 t_color
-color_multiply_components(t_color color, double r, double g, double b);
+color_multiply(t_color color, double r, double g, double b);
 t_color
-color_multiply_all_components(t_color color, double n);
+color_brighten(t_color color, double n);
 
 #endif
