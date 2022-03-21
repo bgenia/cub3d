@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:58:42 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:01:26 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/20 04:31:10 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,8 @@ vec_normalize(t_double2 vec);
 
 t_double2
 vec_rotate(t_double2 vec, double angle);
+
+t_double2
+vec_rotate_by(t_double2 vec, t_double2 direction);
 
 #endif
