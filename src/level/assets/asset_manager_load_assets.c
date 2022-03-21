@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include <cub3d/level/assets.h>
-#include <cub3d/render/color.h>
-#include <cub3d/render/image.h>
+#include <cub3d/graphics/color.h>
+#include <cub3d/graphics/image.h>
 
 void
 	asset_manager_load_assets(t_asset_manager *asset_manager, t_assets assets)

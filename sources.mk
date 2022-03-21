@@ -1,33 +1,20 @@
 SRC@src := \
+	src/render/render/game_render_next_frame.c \
+	src/render/display/display_destroy.c \
+	src/render/display/display_init.c \
 	src/render/renderer/renderer_create_frame.c \
 	src/render/renderer/renderer_destroy.c \
 	src/render/renderer/renderer_render_next_frame.c \
 	src/render/renderer/renderer_init.c \
-	src/render/image/image_create.c \
-	src/render/image/image_destroy.c \
-	src/render/image/image_load_xpm_file.c \
-	src/render/image/image_get_pixel.c \
-	src/render/window/window_create.c \
-	src/render/window/window_draw_image.c \
-	src/render/window/window_destroy.c \
-	src/render/raycasting/cast_ray.c \
-	src/render/raycasting/ray_cast.c \
-	src/render/raycasting/ray_create_vertical.c \
-	src/render/raycasting/ray_create_horizontal.c \
-	src/render/graphics/brush_square.c \
-	src/render/graphics/image_draw_rect.c \
-	src/render/graphics/image_draw_line.c \
-	src/render/graphics/image_draw_brush.c \
-	src/render/graphics/image_draw_circle.c \
-	src/render/graphics/image_fill_rect.c \
-	src/render/graphics/image_fill_circle.c \
-	src/render/graphics/image_fill.c \
-	src/render/graphics/image_fill_pixel.c \
-	src/render/graphics/brush_circle.c \
-	src/render/color/color_create.c \
-	src/render/color/color_parse.c \
-	src/render/color/color_get_component.c \
-	src/render/color/color_multiply_components.c \
+	src/render/minimap/render_minimap_walls.c \
+	src/render/minimap/render_minimap.c \
+	src/render/minimap/render_minimap_overlay.c \
+	src/render/minimap/render_minimap_rays.c \
+	src/render/minimap/fill_minimap_wall.c \
+	src/render/minimap/compute_observable_map.c \
+	src/render/scene/render_column.c \
+	src/render/scene/render_scene.c \
+	src/render/scene/pick_texture.c \
 	src/level/level/level_load_from_file.c \
 	src/level/level/level_destroy.c \
 	src/level/level/validate_level_file_extension.c \
@@ -52,21 +39,49 @@ SRC@src := \
 	src/vecmath/vec_normalize.c \
 	src/vecmath/vec_direction.c \
 	src/vecmath/vec_dot.c \
+	src/vecmath/vec_rotate_by.c \
 	src/vecmath/vec_scale.c \
 	src/vecmath/vec_distance.c \
-	src/game/render/game_render_next_frame.c \
-	src/game/render/game_render_column.c \
-	src/game/render/pick_texture.c \
+	src/raycasting/raycasting_utils/ray_get_view_plane_distance.c \
+	src/raycasting/raycasting_utils/ray_scale.c \
+	src/raycasting/raycasting_utils/check_ray_wall_hit.c \
+	src/raycasting/raycasting/cast_ray.c \
+	src/raycasting/raycasting/ray_cast.c \
+	src/raycasting/raycasting/ray_create_vertical.c \
+	src/raycasting/raycasting/ray_create_horizontal.c \
+	src/graphics/image/image_create.c \
+	src/graphics/image/image_clear_mask.c \
+	src/graphics/image/image_destroy.c \
+	src/graphics/image/image_load_xpm_file.c \
+	src/graphics/image/image_use_mask.c \
+	src/graphics/image/image_get_pixel.c \
+	src/graphics/window/window_create.c \
+	src/graphics/window/window_draw_image.c \
+	src/graphics/window/window_destroy.c \
+	src/graphics/graphics/brush_square.c \
+	src/graphics/graphics/image_draw_rect.c \
+	src/graphics/graphics/image_put_image.c \
+	src/graphics/graphics/image_draw_line.c \
+	src/graphics/graphics/image_draw_brush.c \
+	src/graphics/graphics/image_draw_circle.c \
+	src/graphics/graphics/image_fill_rect.c \
+	src/graphics/graphics/image_fill_circle.c \
+	src/graphics/graphics/image_fill.c \
+	src/graphics/graphics/image_fill_pixel.c \
+	src/graphics/graphics/brush_circle.c \
+	src/graphics/color/color_compose.c \
+	src/graphics/color/color_decompose.c \
+	src/graphics/color/color_parse.c \
+	src/graphics/color/color_get_component.c \
+	src/graphics/color/color_multiply.c \
 	src/game/hooks/handle_key_press.c \
 	src/game/hooks/register_hooks.c \
 	src/game/hooks/handle_exit.c \
 	src/game/hooks/handle_frame.c \
 	src/game/hooks/handle_key_release.c \
-	src/game/game/game_display_destroy.c \
 	src/game/game/game_init.c \
 	src/game/game/game_loop.c \
 	src/game/game/game_destroy.c \
 	src/game/game/game_update.c \
-	src/game/game/game_display_init.c \
 	src/game/game/game_setup.c \
 	src/main.c \
