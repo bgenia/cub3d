@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:26:25 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 19:48:33 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 # include <libft/tuples.h>
 
-# define MINIMAP_COLOR_FRAME	0x0000ff
-# define MINIMAP_COLOR_WALL		0x7acaff
-# define MINIMAP_COLOR_BG		0xbde5ff
-# define MINIMAP_COLOR_PLAYER	0xff0000
-# define MINIMAP_COLOR_RAY		0xff0000
+# define MINIMAP_COLOR_FRAME	0x00a32d
+# define MINIMAP_COLOR_BG		0x002109
+# define MINIMAP_COLOR_WALL		0x00691d
+# define MINIMAP_COLOR_PLAYER	0x00b031
+# define MINIMAP_COLOR_RAY		0x00b031
 
 typedef struct s_game_settings
 {
