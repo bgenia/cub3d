@@ -15,8 +15,8 @@
 
 # include <stdbool.h>
 
-# include <cub3d/render/image.h>
-# include <cub3d/render/window.h>
+# include <cub3d/graphics/image.h>
+# include <cub3d/graphics/window.h>
 
 typedef struct s_renderer
 {

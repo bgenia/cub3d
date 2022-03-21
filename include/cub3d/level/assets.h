@@ -15,8 +15,8 @@
 
 # include <stdbool.h>
 
-# include <cub3d/render/color.h>
-# include <cub3d/render/image.h>
+# include <cub3d/graphics/color.h>
+# include <cub3d/graphics/image.h>
 
 typedef struct s_assets
 {

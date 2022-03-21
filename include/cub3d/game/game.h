@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 11:46:40 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 16:50:41 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,19 @@
 
 # include <stdbool.h>
 
+# include <cub3d/game/settings.h>
 # include <cub3d/level/assets.h>
 # include <cub3d/level/map.h>
-# include <cub3d/render/renderer.h>
 # include <cub3d/level/level.h>
+# include <cub3d/render/display.h>
+# include <cub3d/render/display.h>
 
 # include <libft/tuples.h>
-
-typedef struct s_game_settings
-{
-	size_t	window_width;
-	size_t	window_height;
-	double	fov;
-	int		column_width;
-	bool	sync;
-	double	movement_speed;
-	double	rotation_speed;
-	double	shift_multiplier;
-	struct s_minimap_settings {
-		t_int2	position;
-		int		size;
-		double	scale;
-		int		ray_count;
-	}		minimap;
-}	t_game_settings;
-
-typedef struct s_game_display
-{
-	void			*mlx;
-	t_window		window;
-	t_renderer		renderer;
-	t_image			minimap;
-	t_image			minimap_mask;
-}	t_game_display;
-
-void
-game_display_init(t_game_display *display, t_game_settings settings);
-void
-game_display_destroy(t_game_display *display);
 
 typedef struct s_game_state
 {
 	t_game_settings	settings;
-	t_game_display	display;
+	t_display		display;
 	t_asset_manager	asset_manager;
 	t_map			map;
 	struct s_player {
