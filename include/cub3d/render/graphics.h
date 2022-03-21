@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:47:58 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 06:22:24 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/20 00:16:57 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ void
 image_draw_rect(t_image *image, t_brush brush, t_int2 start, t_int2 end);
 void
 image_draw_circle(t_image *image, t_brush brush, t_int2 position, int radius);
+
+void
+image_put_image(t_image *image, t_image *source, t_int2 position);
 
 #endif
