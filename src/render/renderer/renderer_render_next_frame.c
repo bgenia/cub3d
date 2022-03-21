@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:44:57 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 22:18:19 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/21 22:41:00 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void
 	struct timeval	timeval;
 
 	gettimeofday(&timeval, NULL);
-	renderer->frame_delta = timeval.tv_usec - renderer->prev_frame_time;
+	renderer->frame_delta = (timeval.tv_usec - renderer->prev_frame_time) / 1e6;
 	renderer->prev_frame_time = timeval.tv_usec;
 }
 
