@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_create.c                                     :+:      :+:    :+:   */
+/*   color_decompose.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 04:08:22 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/12 04:08:44 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/20 14:02:42 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/render/color.h>
 
-t_color
-	color_argb(
-		t_color_component a,
-		t_color_component r,
-		t_color_component g,
-		t_color_component b
-	)
-{
-	t_color	color;
+#include <libft/math.h>
+#include <libft/tuples.h>
 
-	color = 0;
-	color += a << 24;
-	color += r << 16;
-	color += g << 8;
-	color += b << 0;
-	return (color);
+t_int4
+	color_decompose(t_color color)
+{
+	return ((t_int4){
+		color_get_alpha(color),
+		color_get_red(color),
+		color_get_green(color),
+		color_get_blue(color)
+	});
 }
 
-t_color
-	color_rgb(
-		t_color_component r,
-		t_color_component g,
-		t_color_component b
-	)
+t_double4
+	color_decompose_d(t_color color)
 {
-	return (color_argb(0, r, g, b));
+	return ((t_double4){
+		(double)color_get_alpha(color) / 255,
+		(double)color_get_red(color) / 255,
+		(double)color_get_green(color) / 255,
+		(double)color_get_blue(color) / 255
+	});
 }

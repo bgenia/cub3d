@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:36:25 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 23:32:55 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/20 14:17:37 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ t_color
 	g = _parse_color_component(components[1]);
 	b = _parse_color_component(components[2]);
 	free(components);
-	return (color_rgb(r, g, b));
+	return (color_compose((t_int4){0, r, g, b}));
 }
