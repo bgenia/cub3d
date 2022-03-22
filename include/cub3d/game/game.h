@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:54:36 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:26:02 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:36:34 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_game_state
 		int			rotation_direction;
 		double		shift_multiplier;
 		int			mouse_x;
-		int			mouse_movement;
+		double		mouse_movement;
 	}				player;
 }	t_game_state;
 
