@@ -6,14 +6,15 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:31:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 19:23:36 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:12:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/game/settings.h>
 #include <cub3d/game/game.h>
 #include <cub3d/graphics/image.h>
-#include <cub3d/raycasting/raycasting.h>
+#include <cub3d/raycasting/ray.h>
+#include <cub3d/raycasting/raycaster.h>
 #include <cub3d/raycasting/raycasting_utils.h>
 #include <cub3d/vecmath.h>
 #include <cub3d/graphics/drawing.h>
@@ -44,24 +45,22 @@ static void
 void
 	render_minimap_rays(t_game_state *state)
 {
-	int			i;
-	double		angle;
-	double		angle_offset;
-	t_double2	ray_direction;
+	t_raycaster	raycaster;
+	int			iteration_limit;
 	t_ray		ray;
 
-	angle = -state->settings.fov / 2;
-	angle_offset = state->settings.fov / state->settings.minimap.ray_count;
-	ray_direction = vec_rotate(state->player.direction, ft_deg2rad(angle));
-	i = 0;
-	while (angle < state->settings.fov / 2)
+	raycaster = raycaster_create(
+			state->player.position,
+			state->player.direction,
+			ft_deg2rad(state->settings.fov),
+			state->settings.minimap.ray_count
+			);
+	iteration_limit = state->settings.minimap.size
+		/ state->settings.minimap.scale;
+	while (!raycaster.done)
 	{
-		ray = cast_ray(state->player.position, ray_direction,
-				state->settings.minimap.size / state->settings.minimap.scale,
+		ray = raycaster_cast_next_ray(&raycaster, iteration_limit,
 				(t_ray_hit_predicate){(void *)check_ray_wall_hit, &state->map});
 		_draw_minimap_ray(state, &ray);
-		i++;
-		angle += angle_offset;
-		ray_direction = vec_rotate(state->player.direction, ft_deg2rad(angle));
 	}
 }
