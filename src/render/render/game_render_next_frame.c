@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 05:14:22 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 08:14:09 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:20:15 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void
 	game_render_next_frame(t_game_state *state)
 {
 	render_scene(state);
-	render_minimap(state);
+	if (state->settings.minimap.enabled)
+		render_minimap(state);
 	renderer_render_next_frame(&state->display.renderer);
-	_render_fps_counter(state);
+	if (state->settings.fps_counter)
+		_render_fps_counter(state);
 }

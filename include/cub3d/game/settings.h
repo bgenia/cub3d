@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:33:01 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:19:49 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ typedef struct s_game_settings
 	int		column_width;
 	bool	shading;
 	bool	sync;
+	bool	fps_counter;
 	double	movement_speed;
 	double	rotation_speed;
 	double	shift_multiplier;
 	struct s_minimap_settings {
+		bool	enabled;
 		t_int2	position;
 		int		size;
 		double	scale;
