@@ -1,5 +1,6 @@
 SRC@src := \
 	src/render/render/game_render_next_frame.c \
+	src/render/render/render_performance_overlay.c \
 	src/render/display/display_destroy.c \
 	src/render/display/display_init.c \
 	src/render/renderer/renderer_create_frame.c \
