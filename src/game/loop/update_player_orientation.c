@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_update.c                                      :+:      :+:    :+:   */
+/*   update_player_orientation.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 18:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:53:47 by bgenia           ###   ########.fr       */
+/*   Created: 2022/03/22 14:49:44 by bgenia            #+#    #+#             */
+/*   Updated: 2022/03/22 14:50:11 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/game/settings.h>
 #include <cub3d/game/game.h>
-#include <cub3d/game/loop.h>
+#include <cub3d/vecmath.h>
 
 void
-	game_update(t_game_state *state)
+	update_player_orientation(t_game_state *state)
 {
-	if (state->settings.mouse_rotation && BONUS_MOUSE_ROTATION)
-		update_mouse_movement(state);
-	update_player_orientation(state);
-	update_player_position(state);
+	state->player.direction = vec_rotate(state->player.direction,
+			state->settings.rotation_speed * state->player.rotation_direction
+			* state->display.renderer.frame_delta);
+	state->player.direction = vec_rotate(state->player.direction,
+			state->settings.rotation_speed
+			* state->player.mouse_movement
+			* state->display.renderer.frame_delta);
 }
