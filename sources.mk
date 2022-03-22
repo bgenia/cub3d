@@ -43,13 +43,17 @@ SRC@src := \
 	src/vecmath/vec_rotate_by.c \
 	src/vecmath/vec_scale.c \
 	src/vecmath/vec_distance.c \
+	src/raycasting/raycaster/raycaster_update_angle.c \
+	src/raycasting/raycaster/raycaster_cast_next_ray.c \
+	src/raycasting/raycaster/raycaster_create.c \
+	src/raycasting/raycaster/raycaster_cast_ray.c \
 	src/raycasting/raycasting_utils/ray_get_view_plane_distance.c \
 	src/raycasting/raycasting_utils/ray_scale.c \
 	src/raycasting/raycasting_utils/check_ray_wall_hit.c \
-	src/raycasting/raycasting/cast_ray.c \
-	src/raycasting/raycasting/ray_cast.c \
-	src/raycasting/raycasting/ray_create_vertical.c \
-	src/raycasting/raycasting/ray_create_horizontal.c \
+	src/raycasting/ray/cast_ray.c \
+	src/raycasting/ray/ray_cast.c \
+	src/raycasting/ray/ray_create_vertical.c \
+	src/raycasting/ray/ray_create_horizontal.c \
 	src/graphics/image/image_create.c \
 	src/graphics/image/image_clear_mask.c \
 	src/graphics/image/image_destroy.c \
