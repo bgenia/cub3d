@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:17:06 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:26:29 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:10:42 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct s_renderer
 	t_image		frames[2];
 	uint64_t	prev_frame_time;
 	double		frame_delta;
+	double		frame_min;
+	double		frame_max;
+	double		frame_avg;
 }	t_renderer;
 
 void

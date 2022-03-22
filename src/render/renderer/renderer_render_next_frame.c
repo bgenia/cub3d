@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:44:57 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:28:33 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:13:27 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/window.h>
 #include <cub3d/render/renderer.h>
+
+#include <libft/math.h>
 
 #include <mlx.h>
 
@@ -34,12 +36,22 @@ static uint64_t
 }
 
 static void
+	_update_frame_stats(t_renderer *renderer)
+{
+	renderer->frame_max = ft_maxd(renderer->frame_max, renderer->frame_delta);
+	renderer->frame_min = ft_mind(renderer->frame_min, renderer->frame_delta);
+	renderer->frame_avg = (renderer->frame_avg + renderer->frame_delta) / 2;
+}
+
+static void
 	_update_frame_time(t_renderer *renderer)
 {
 	uint64_t	time;
 
 	time = _get_time_ms();
 	renderer->frame_delta = (double)(time - renderer->prev_frame_time) / 1000;
+	if (renderer->prev_frame_time > 0)
+		_update_frame_stats(renderer);
 	renderer->prev_frame_time = time;
 }
 

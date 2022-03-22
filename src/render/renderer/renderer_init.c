@@ -6,11 +6,12 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:30:35 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:28:58 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:05:01 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+#include <math.h>
 
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/window.h>
@@ -26,4 +27,6 @@ void
 	renderer->frames[1] = renderer_create_frame(renderer);
 	renderer->current_frame = &renderer->frames[0];
 	renderer->next_frame = &renderer->frames[1];
+	renderer->frame_min = INFINITY;
+	renderer->frame_max = -INFINITY;
 }
