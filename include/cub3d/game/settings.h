@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 08:19:49 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 12:50:14 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define MINIMAP_COLOR_PLAYER	0x00b031
 # define MINIMAP_COLOR_RAY		0x00b031
 
+# define PERFORMANCE_OVERLAY_COLOR 0x00ff00
+
 typedef struct s_game_settings
 {
 	size_t	window_width;
@@ -34,7 +36,7 @@ typedef struct s_game_settings
 	int		column_width;
 	bool	shading;
 	bool	sync;
-	bool	fps_counter;
+	bool	performance_overlay;
 	double	movement_speed;
 	double	rotation_speed;
 	double	shift_multiplier;
