@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:48:13 by drohanne          #+#    #+#             */
-/*   Updated: 2022/03/18 22:33:22 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:14:23 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void
 			if (!validate_map_border(map, i, j, map_get(map, j, i)))
 				ft_exitf(STDERR_FILENO, EXIT_FAILURE,
 					"Error\nUnclosed map\n");
-			if (ft_strchr("NSEW", map_get(map, j, i)))
+			if (ft_strchr(PLAYER_TILES, map_get(map, j, i)))
 				count_heroes++;
 			j++;
 		}

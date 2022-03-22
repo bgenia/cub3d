@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:05:35 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 22:21:28 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:13:04 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char
 	char	*row;
 
 	if (y >= ft_vector_get_size(map->vec_value))
-		return (' ');
+		return (TILE_VOID);
 	row = map->vec_value[y];
 	if (x >= ft_vector_get_size(row))
-		return (' ');
+		return (TILE_VOID);
 	return (row[x]);
 }

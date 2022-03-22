@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:17:56 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 16:43:42 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:12:42 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void
 		{
 			position = ft_double2(i.x - state->player.position.x,
 					i.y - state->player.position.y);
-			if (map_get(&state->map, i.x, i.y) == '1')
+			if (map_get(&state->map, i.x, i.y) == TILE_WALL)
 				fill_minimap_wall(state, minimap, position);
 			i.x++;
 		}
