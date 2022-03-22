@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 05:14:22 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 12:50:56 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:54:07 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void
 	game_render_next_frame(t_game_state *state)
 {
 	render_scene(state);
-	if (state->settings.minimap.enabled)
+	if (state->settings.minimap.enabled && BONUS_MINIMAP)
 		render_minimap(state);
 	renderer_render_next_frame(&state->display.renderer);
 	if (state->settings.performance_overlay)
