@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:26:36 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:28:34 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ static void
 			state->settings.rotation_speed * state->player.rotation_direction
 			* state->display.renderer.frame_delta
 			);
-	// state->player.direction = vec_rotate(
-	// 		state->player.direction,
-	// 		state->settings.rotation_speed * state->player.mouse_movement
-	// 		);
+	state->player.direction = vec_rotate(
+			state->player.direction,
+			state->settings.rotation_speed * state->player.mouse_movement
+			* state->display.renderer.frame_delta
+			);
 }
 
 static void
@@ -69,11 +70,6 @@ static void
 		state->display.window.mlx_window, &x, &y);
 	state->player.mouse_movement = ft_clamp(x - state->player.mouse_x, -1, 1);
 	state->player.mouse_x = x;
-	if ((size_t)x <= state->display.window.width / 3)
-		mlx_mouse_move(state->display.mlx, state->display.window.mlx_window, state->display.window.width / 2, y);
-
-	if ((size_t)x >= state->display.window.width / 3 * 2)
-		mlx_mouse_move(state->display.mlx, state->display.window.mlx_window, state->display.window.width / 2, y);
 }
 
 void
