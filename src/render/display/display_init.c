@@ -20,6 +20,7 @@
 
 #include <libft/utils.h>
 #include <libft/tuples.h>
+#include <libft/vector/vector.h>
 
 #include <mlx.h>
 
@@ -49,4 +50,6 @@ void
 			settings.window_height, "bgenia/drohanne:cub3d");
 	renderer_init(&display->renderer, &display->window, settings.sync);
 	_init_minimap(display, settings);
+	display->vec_depth_buffer = ft_vector_alloc_empty(sizeof(t_ray));
+	ft_vector_set_flags(display->vec_depth_buffer, FT_VECTOR_GROWABLE);
 }

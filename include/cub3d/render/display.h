@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:04:40 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 14:56:46 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:21:36 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <cub3d/game/game.h>
 # include <cub3d/graphics/window.h>
 # include <cub3d/render/renderer.h>
+# include <cub3d/raycasting/ray.h>
 
 typedef struct s_display
 {
@@ -24,6 +25,7 @@ typedef struct s_display
 	t_renderer		renderer;
 	t_image			minimap;
 	t_image			minimap_mask;
+	t_ray			*vec_depth_buffer;
 }	t_display;
 
 void
