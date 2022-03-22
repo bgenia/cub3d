@@ -54,6 +54,17 @@ SRC@src := \
 	src/raycasting/ray/ray_cast.c \
 	src/raycasting/ray/ray_create_vertical.c \
 	src/raycasting/ray/ray_create_horizontal.c \
+	src/graphics/drawing/brush_square.c \
+	src/graphics/drawing/image_draw_rect.c \
+	src/graphics/drawing/image_put_image.c \
+	src/graphics/drawing/image_draw_line.c \
+	src/graphics/drawing/image_draw_brush.c \
+	src/graphics/drawing/image_draw_circle.c \
+	src/graphics/drawing/image_fill_rect.c \
+	src/graphics/drawing/image_fill_circle.c \
+	src/graphics/drawing/image_fill.c \
+	src/graphics/drawing/image_fill_pixel.c \
+	src/graphics/drawing/brush_circle.c \
 	src/graphics/image/image_create.c \
 	src/graphics/image/image_clear_mask.c \
 	src/graphics/image/image_destroy.c \
@@ -63,17 +74,6 @@ SRC@src := \
 	src/graphics/window/window_create.c \
 	src/graphics/window/window_draw_image.c \
 	src/graphics/window/window_destroy.c \
-	src/graphics/graphics/brush_square.c \
-	src/graphics/graphics/image_draw_rect.c \
-	src/graphics/graphics/image_put_image.c \
-	src/graphics/graphics/image_draw_line.c \
-	src/graphics/graphics/image_draw_brush.c \
-	src/graphics/graphics/image_draw_circle.c \
-	src/graphics/graphics/image_fill_rect.c \
-	src/graphics/graphics/image_fill_circle.c \
-	src/graphics/graphics/image_fill.c \
-	src/graphics/graphics/image_fill_pixel.c \
-	src/graphics/graphics/brush_circle.c \
 	src/graphics/color/color_compose.c \
 	src/graphics/color/color_decompose.c \
 	src/graphics/color/color_parse.c \
