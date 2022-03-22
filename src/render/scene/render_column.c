@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:33:21 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 13:56:24 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <cub3d/graphics/color.h>
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/drawing.h>
-#include <cub3d/raycasting/raycasting.h>
+#include <cub3d/raycasting/ray.h>
 #include <cub3d/raycasting/raycasting_utils.h>
 #include <cub3d/render/scene.h>
 #include <cub3d/game/game.h>

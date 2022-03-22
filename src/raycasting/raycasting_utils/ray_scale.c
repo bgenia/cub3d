@@ -6,11 +6,11 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:12:29 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 15:13:50 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 13:57:09 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d/raycasting/raycasting.h>
+#include <cub3d/raycasting/ray.h>
 
 void
 	ray_scale(t_ray *ray, double scale)

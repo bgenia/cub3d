@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_create_vertical.c                              :+:      :+:    :+:   */
+/*   ray_create_horizontal.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 19:14:38 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 13:57:00 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include <cub3d/raycasting/raycasting.h>
+#include <cub3d/raycasting/ray.h>
 
 #include <libft/tuples.h>
 
 t_ray
-	ray_create_vertical(t_double2 origin, t_double2 direction)
+	ray_create_horizontal(t_double2 origin, t_double2 direction)
 {
 	t_ray	ray;
-	double	direction_tan;
+	double	direction_ctg;
 
 	ray = (t_ray){
-		.type = RAY_VERTICAL, .origin = origin, .direction = direction
+		.type = RAY_HORIZONTAL, .origin = origin, .direction = direction
 	};
-	direction_tan = direction.y / direction.x;
-	if (direction.x == 0)
-		direction_tan = 1;
-	if (direction.x < 0)
+	direction_ctg = direction.x / direction.y;
+	if (direction.y == 0)
+		direction_ctg = 1;
+	if (direction.y < 0)
 	{
-		ray.position.x = floor(origin.x) - RAY_CORRECTION_COEFFICENT;
-		ray.offset.x = -1;
+		ray.position.y = floor(origin.y) - RAY_CORRECTION_COEFFICENT;
+		ray.offset.y = -1;
 	}
-	if (direction.x > 0)
+	if (direction.y > 0)
 	{
-		ray.position.x = ceil(origin.x);
-		ray.offset.x = 1;
+		ray.position.y = ceil(origin.y);
+		ray.offset.y = 1;
 	}
-	ray.position.y = (origin.x - ray.position.x)
-		* -direction_tan + origin.y;
-	ray.offset.y = -ray.offset.x * -direction_tan;
-	if (direction.x == 0)
+	ray.position.x = (origin.y - ray.position.y)
+		* -direction_ctg + origin.x;
+	ray.offset.x = -ray.offset.y * -direction_ctg;
+	if (direction.y == 0)
 		ray.length = INFINITY;
 	return (ray);
 }
