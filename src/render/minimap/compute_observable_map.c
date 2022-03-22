@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:57:55 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 16:47:55 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 09:17:12 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void
 	scale = state->settings.minimap.scale;
 	position = state->player.position;
 	observable_size = ft_int2(map_size / scale, map_size / scale);
-	*from = ft_int2(position.x - observable_size.x / 2,
-			position.y - observable_size.y / 2);
-	*to = ft_int2(ceil(position.x) + observable_size.x / 2,
-			ceil(position.y) + observable_size.y / 2);
+	*from = ft_int2(floor(position.x) - observable_size.x / 2 - 1,
+			floor(position.y) - observable_size.y / 2 - 1);
+	*to = ft_int2(ceil(position.x) + observable_size.x / 2 + 1,
+			ceil(position.y) + observable_size.y / 2 + 1);
 }
