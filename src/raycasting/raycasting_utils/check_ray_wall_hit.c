@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:54 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 15:10:37 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:12:38 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@
 bool
 	check_ray_wall_hit(t_double2 hit_position, t_map *map)
 {
-	return (map_get(map, hit_position.x, hit_position.y) == '1');
+	return (map_get(map, hit_position.x, hit_position.y) == TILE_WALL);
 }

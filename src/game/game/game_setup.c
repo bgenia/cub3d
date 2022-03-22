@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:28:58 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:16:25 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 static bool
 	_is_player_char(char c)
 {
-	return (!!ft_strchr("NSWE", c));
+	return (!!ft_strchr(PLAYER_TILES, c));
 }
 
 static t_double2
@@ -32,13 +32,13 @@ static t_double2
 	t_double2	direction;
 
 	direction = ft_double2(0, 0);
-	if (c == 'N')
+	if (c == TILE_PLAYER_N)
 		direction.y = -1;
-	if (c == 'S')
+	if (c == TILE_PLAYER_S)
 		direction.y = 1;
-	if (c == 'W')
+	if (c == TILE_PLAYER_W)
 		direction.x = -1;
-	if (c == 'E')
+	if (c == TILE_PLAYER_E)
 		direction.x = 1;
 	return (direction);
 }
