@@ -18,7 +18,6 @@
 #include <cub3d/render/renderer.h>
 
 #include <libft/utils.h>
-#include <libft/vector/vector.h>
 
 #include <mlx.h>
 
@@ -31,6 +30,6 @@ void
 	window_destroy(&display->window);
 	mlx_destroy_display(display->mlx);
 	free(display->mlx);
-	ft_vector_free(display->vec_depth_buffer);
-	ft_vector_free(display->vec_depth_indices);
+	free(display->depth_buffer);
+	free(display->depth_indices);
 }

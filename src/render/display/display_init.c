@@ -17,10 +17,10 @@
 #include <cub3d/graphics/window.h>
 #include <cub3d/render/renderer.h>
 #include <cub3d/graphics/drawing.h>
+#include <libft/memory/memory.h>
 
 #include <libft/utils.h>
 #include <libft/tuples.h>
-#include <libft/vector/vector.h>
 
 #include <mlx.h>
 
@@ -50,8 +50,7 @@ void
 			settings.window_height, "bgenia/drohanne:cub3d");
 	renderer_init(&display->renderer, &display->window, settings.sync);
 	_init_minimap(display, settings);
-	display->vec_depth_buffer = ft_vector_alloc_empty(sizeof(t_ray));
-	ft_vector_set_flags(display->vec_depth_buffer, FT_VECTOR_GROWABLE);
-	display->vec_depth_indices = ft_vector_alloc_empty(sizeof(int));
-	ft_vector_set_flags(display->vec_depth_indices, FT_VECTOR_GROWABLE);
+	display->ray_count = settings.window_width / settings.column_width;
+	display->depth_buffer = ft_malloc(sizeof(t_ray) * display->ray_count);
+	display->depth_indices = ft_malloc(sizeof(int) * display->ray_count);
 }
