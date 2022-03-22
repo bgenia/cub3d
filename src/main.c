@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 23:48:50 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:16:27 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_game_settings
 		.window_width = 1280,
 		.window_height = 720,
 		.fov = 90,
-		.column_width = 3,
+		.column_width = 1,
 		.shading = false,
 		.movement_speed = 1.5,
 		.rotation_speed = 1.5,
