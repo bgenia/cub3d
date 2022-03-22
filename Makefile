@@ -27,6 +27,10 @@ ifdef DEBUG_MODE
     export FT_OPTIONS := FT_MALLOC_ABORT
 endif
 
+ifdef BONUS_MODE
+    export CFLAGS += -DBONUS
+endif
+
 define .LIBRARIES
 lib/libft/libft.a:lib/libft/include
 lib/libmlx/libmlx.a:lib/libmlx
