@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 08:16:27 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 08:36:07 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ static t_game_settings
 		.window_width = 1280,
 		.window_height = 720,
 		.fov = 90,
-		.column_width = 1,
+		.column_width = 3,
+		.fps_counter = true,
 		.shading = false,
+		.sync = true,
 		.movement_speed = 1.5,
 		.rotation_speed = 1.5,
 		.shift_multiplier = 3,
-		.sync = true,
 		.minimap = {
+			.enabled = true,
 			.position = ft_int2(20, 450),
 			.size = 250,
 			.scale = 20,
