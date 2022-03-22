@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/17 00:31:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/17 17:39:56 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <cub3d/level/level.h>
 
 #include <libft/string/string.h>
+
+#include <mlx.h>
 
 static bool
 	_is_player_char(char c)
@@ -77,4 +79,5 @@ void
 	asset_manager_load_assets(&state->asset_manager, level->assets);
 	_place_player(state);
 	register_hooks(state);
+	mlx_mouse_hide(state->display.mlx, state->display.window.mlx_window);
 }

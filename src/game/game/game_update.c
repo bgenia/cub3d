@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 22:51:32 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:26:36 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <cub3d/vecmath.h>
 
 #include <libft/tuples.h>
+#include <libft/math.h>
+
+#include <mlx.h>
+
+#include <libft/io/printf.h>
 
 static void
 	_update_player_position(t_game_state *state)
@@ -48,11 +53,34 @@ static void
 			state->settings.rotation_speed * state->player.rotation_direction
 			* state->display.renderer.frame_delta
 			);
+	// state->player.direction = vec_rotate(
+	// 		state->player.direction,
+	// 		state->settings.rotation_speed * state->player.mouse_movement
+	// 		);
+}
+
+static void
+	_update_mouse_movement(t_game_state *state)
+{
+	int	x;
+	int	y;
+
+	mlx_mouse_get_pos(state->display.mlx,
+		state->display.window.mlx_window, &x, &y);
+	state->player.mouse_movement = ft_clamp(x - state->player.mouse_x, -1, 1);
+	state->player.mouse_x = x;
+	if ((size_t)x <= state->display.window.width / 3)
+		mlx_mouse_move(state->display.mlx, state->display.window.mlx_window, state->display.window.width / 2, y);
+
+	if ((size_t)x >= state->display.window.width / 3 * 2)
+		mlx_mouse_move(state->display.mlx, state->display.window.mlx_window, state->display.window.width / 2, y);
 }
 
 void
 	game_update(t_game_state *state)
 {
+	_update_mouse_movement(state);
+	ft_printf(">> %d\n", state->player.mouse_movement);
 	_update_player_orientation(state);
 	_update_player_position(state);
 }
