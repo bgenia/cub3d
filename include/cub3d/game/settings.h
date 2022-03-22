@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:45:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 17:02:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@
 # include <cub3d/graphics/color.h>
 
 # include <libft/tuples.h>
-
-# ifdef BONUS
-#  define BONUS_MINIMAP 1
-#  define BONUS_MOUSE_ROTATION 1
-# else
-#  define BONUS_MINIMAP 0
-#  define BONUS_MOUSE_ROTATION 0
-# endif
 
 # define MINIMAP_COLOR_FRAME	0x00a32d
 # define MINIMAP_COLOR_BG		0x002109
@@ -48,6 +40,8 @@ typedef struct s_game_settings
 	double	movement_speed;
 	double	rotation_speed;
 	double	shift_multiplier;
+	double	collision_range;
+	bool	collision_enabled;
 	bool	mouse_rotation;
 	struct s_minimap_settings {
 		bool	enabled;
