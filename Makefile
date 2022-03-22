@@ -28,7 +28,7 @@ ifdef DEBUG_MODE
 endif
 
 ifdef BONUS_MODE
-    export CFLAGS += -DBONUS
+    CFLAGS += -DBONUS
 endif
 
 define .LIBRARIES
