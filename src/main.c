@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 08:36:07 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 12:50:14 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_game_settings
 		.window_height = 720,
 		.fov = 90,
 		.column_width = 3,
-		.fps_counter = true,
+		.performance_overlay = true,
 		.shading = false,
 		.sync = true,
 		.movement_speed = 1.5,
