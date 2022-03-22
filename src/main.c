@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:57:26 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:27:14 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/22 14:54:20 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static t_game_settings
 		.movement_speed = 1.5,
 		.rotation_speed = 1.5,
 		.shift_multiplier = 3,
+		.mouse_rotation = true,
 		.minimap = {
 			.enabled = true,
 			.position = ft_int2(20, 450),
