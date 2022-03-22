@@ -32,4 +32,5 @@ void
 	mlx_destroy_display(display->mlx);
 	free(display->mlx);
 	ft_vector_free(display->vec_depth_buffer);
+	ft_vector_free(display->vec_depth_indices);
 }

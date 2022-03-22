@@ -52,4 +52,6 @@ void
 	_init_minimap(display, settings);
 	display->vec_depth_buffer = ft_vector_alloc_empty(sizeof(t_ray));
 	ft_vector_set_flags(display->vec_depth_buffer, FT_VECTOR_GROWABLE);
+	display->vec_depth_indices = ft_vector_alloc_empty(sizeof(int));
+	ft_vector_set_flags(display->vec_depth_indices, FT_VECTOR_GROWABLE);
 }
