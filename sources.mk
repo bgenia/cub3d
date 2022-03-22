@@ -79,6 +79,9 @@ SRC@src := \
 	src/graphics/color/color_parse.c \
 	src/graphics/color/color_get_component.c \
 	src/graphics/color/color_multiply.c \
+	src/game/loop/update_mouse_movement.c \
+	src/game/loop/update_player_position.c \
+	src/game/loop/update_player_orientation.c \
 	src/game/hooks/handle_key_press.c \
 	src/game/hooks/register_hooks.c \
 	src/game/hooks/handle_exit.c \
