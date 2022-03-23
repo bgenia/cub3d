@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 14:26:20 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/23 23:26:43 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int
 	handle_frame(t_game_state *state)
 {
 	game_update(state);
-	game_render_next_frame(state);
+	render_frame(state);
 	return (0);
 }
