@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_render_next_frame.c                           :+:      :+:    :+:   */
+/*   render_frame.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 #include <cub3d/render/scene.h>
 
 void
-	game_render_next_frame(t_game_state *state)
+	render_frame(t_game_state *state)
 {
 	render_scene(state);
 	if (state->settings.minimap.enabled)
