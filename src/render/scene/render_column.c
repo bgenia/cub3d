@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:56:24 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/23 23:18:58 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 #include <libft/tuples.h>
 #include <libft/math.h>
+#include <libft/vector/vector.h>
 
 typedef struct s_column_render_vars
 {
@@ -132,6 +133,7 @@ void
 	render_column(t_game_state *state, t_ray *ray, int ray_index, int ray_count)
 {
 	t_column_render_vars	vars;
+	int						i;
 
 	vars.column_dimensions = _compute_column_dimensions(state, ray, ray_count);
 	vars.texture = pick_texture(state, ray);
@@ -149,6 +151,12 @@ void
 			state->display.window.height / 2 - vars.column_dimensions.y / 2
 			);
 	vars.texture_position = _compute_texture_position(ray, &vars);
+	i = 0;
+	while (i < vars.column_dimensions.x)
+	{
+		*(double *)ft_vector_push_back(&state->display.vec_depth) = ray->length;
+		i++;
+	}
 	_render_background(state, &vars);
 	_render_column(state, ray, &vars);
 }
