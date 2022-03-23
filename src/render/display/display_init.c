@@ -20,6 +20,7 @@
 
 #include <libft/utils.h>
 #include <libft/tuples.h>
+#include <libft/vector/vector.h>
 
 #include <mlx.h>
 
@@ -37,6 +38,15 @@ static void
 	image_use_mask(&display->minimap, &display->minimap_mask);
 }
 
+static void
+	_init_depth_buffer(t_display *display)
+{
+	display->vec_depth = ft_vector_alloc_with_capacity(
+			sizeof(double),
+			display->window.width
+			);
+}
+
 void
 	display_init(t_display *display, t_game_settings settings)
 {
@@ -45,6 +55,7 @@ void
 	if (!display->mlx)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
 			"Error\nUnable to initialize mlx\n");
+	_init_depth_buffer(display);
 	display->window = window_create(display->mlx, settings.window_width,
 			settings.window_height, "bgenia/drohanne:cub3d");
 	renderer_init(&display->renderer, &display->window, settings.sync);
