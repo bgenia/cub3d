@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:59:10 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:56:16 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/24 00:47:27 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ t_image
 
 void
 render_column(t_game_state *state, t_ray *ray, int ray_index, int ray_count);
+
+void
+save_depth_data(t_game_state *state, int width, double depth);
+void
+clear_depth_data(t_game_state *state);
 
 void
 render_scene(t_game_state *state);
