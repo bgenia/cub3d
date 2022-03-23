@@ -6,24 +6,15 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:57:16 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:11:56 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/23 23:10:00 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdbool.h>
-
 #include <cub3d/game/game.h>
-#include <cub3d/render/render.h>
-#include <cub3d/vecmath.h>
-#include <cub3d/level/map.h>
 #include <cub3d/raycasting/ray.h>
 #include <cub3d/raycasting/raycaster.h>
 #include <cub3d/raycasting/raycasting_utils.h>
-#include <cub3d/graphics/color.h>
-#include <cub3d/graphics/drawing.h>
 #include <cub3d/render/scene.h>
-#include <cub3d/graphics/drawing.h>
 
 #include <libft/tuples.h>
 #include <libft/math.h>
