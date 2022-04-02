@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:56:24 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/24 00:53:59 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void
 			state->display.window.height / 2 - vars.column_dimensions.y / 2
 			);
 	vars.texture_position = _compute_texture_position(ray, &vars);
+	save_depth_data(state, vars.column_dimensions.x, ray->length);
 	_render_background(state, &vars);
 	_render_column(state, ray, &vars);
 }
