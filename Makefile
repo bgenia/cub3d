@@ -25,6 +25,9 @@ export FT_OPTIONS := FT_MALLOC_EXIT
 
 ifdef DEBUG_MODE
     export FT_OPTIONS := FT_MALLOC_ABORT
+else
+    CFLAGS := -Ofast $(filter-out -O2,$(CFLAGS))
+    export FT_OPTIMIZE := -Ofast
 endif
 
 define .LIBRARIES

@@ -1,6 +1,6 @@
 SRC@src := \
-	src/render/render/game_render_next_frame.c \
 	src/render/render/render_performance_overlay.c \
+	src/render/render/render_frame.c \
 	src/render/display/display_destroy.c \
 	src/render/display/display_init.c \
 	src/render/renderer/renderer_create_frame.c \
@@ -14,8 +14,10 @@ SRC@src := \
 	src/render/minimap/fill_minimap_wall.c \
 	src/render/minimap/compute_observable_map.c \
 	src/render/scene/render_column.c \
+	src/render/scene/clear_depth_data.c \
 	src/render/scene/render_scene.c \
 	src/render/scene/pick_texture.c \
+	src/render/scene/save_depth_data.c \
 	src/level/level/level_load_from_file.c \
 	src/level/level/level_destroy.c \
 	src/level/level/validate_level_file_extension.c \

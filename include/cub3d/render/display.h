@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:04:40 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 14:56:46 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/03/23 23:00:35 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_display
 	t_renderer		renderer;
 	t_image			minimap;
 	t_image			minimap_mask;
+	double			*vec_depth;
 }	t_display;
 
 void
