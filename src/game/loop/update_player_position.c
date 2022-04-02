@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:48:54 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:49:30 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/03 02:55:58 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void
 	t_double2	straight_movement;
 	t_double2	side_movement;
 	t_double2	movement;
+	t_double2	new_position;
 
 	straight_movement = state->player.direction;
 	straight_movement = vec_scale(straight_movement,
@@ -37,5 +38,7 @@ void
 			state->display.renderer.frame_delta);
 	movement = vec_add(straight_movement, side_movement);
 	movement = vec_scale(movement, state->player.shift_multiplier);
-	state->player.position = vec_add(state->player.position, movement);
+	new_position = vec_add(state->player.position, movement);
+	if (map_get(&state->map, new_position.x, new_position.y) != TILE_WALL)
+		state->player.position = new_position;
 }
