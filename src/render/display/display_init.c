@@ -51,10 +51,10 @@ void
 	display_init(t_display *display, t_game_settings settings)
 {
 	display->mlx = mlx_init();
-	mlx_do_key_autorepeatoff(display->mlx);
 	if (!display->mlx)
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE,
 			"Error\nUnable to initialize mlx\n");
+	mlx_do_key_autorepeatoff(display->mlx);
 	_init_depth_buffer(display);
 	display->window = window_create(display->mlx, settings.window_width,
 			settings.window_height, "bgenia/drohanne:cub3d");
