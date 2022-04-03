@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 22:41:39 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/03 20:21:25 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,13 @@ static void
 	}
 }
 
-static void
-	_validate_level(t_level *level)
+static bool
+	_validate_not_directory(char *path)
 {
-	map_validate(&level->map);
+	int	fd;
+
+	fd = open(path, __O_DIRECTORY);
+	return (fd == -1);
 }
 
 t_level
@@ -109,6 +112,9 @@ t_level
 	if (!validate_level_file_extension(path))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
 			"Wrong extension (must be .cub)\n");
+	if (!_validate_not_directory(path))
+		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\n"
+			"%s is a directory\n", path);
 	stream = ft_stream_open_fd(open(path, O_RDONLY), STREAM_MODE_I, true);
 	if (!ft_stream_is_valid(&stream))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
@@ -116,6 +122,6 @@ t_level
 	level.assets = (t_assets){0};
 	_init_map(&level, &stream);
 	ft_stream_close(&stream);
-	_validate_level(&level);
+	map_validate(&level.map);
 	return (level);
 }
