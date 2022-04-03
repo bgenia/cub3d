@@ -6,14 +6,13 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:44:57 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 08:13:27 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/03 03:04:21 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stdint.h>
 #include <time.h>
-#include <sys/time.h>
 
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/window.h>
@@ -22,18 +21,6 @@
 #include <libft/math.h>
 
 #include <mlx.h>
-
-static uint64_t
-	_get_time_ms(void)
-{
-	struct timeval	timeval;
-	uint64_t		result;
-
-	gettimeofday(&timeval, NULL);
-	result = timeval.tv_sec * 1000;
-	result += timeval.tv_usec / 1000;
-	return (result);
-}
 
 static void
 	_update_frame_stats(t_renderer *renderer)
@@ -46,13 +33,14 @@ static void
 static void
 	_update_frame_time(t_renderer *renderer)
 {
-	uint64_t	time;
+	clock_t	time;
 
-	time = _get_time_ms();
-	renderer->frame_delta = (double)(time - renderer->prev_frame_time) / 1000;
-	if (renderer->prev_frame_time > 0)
+	time = clock();
+	renderer->frame_delta = \
+		(double)(time - renderer->prev_frame_clock) / CLOCKS_PER_SEC;
+	if (renderer->prev_frame_clock > 0)
 		_update_frame_stats(renderer);
-	renderer->prev_frame_time = time;
+	renderer->prev_frame_clock = time;
 }
 
 void
