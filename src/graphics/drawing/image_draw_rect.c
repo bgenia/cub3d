@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 04:25:00 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:26:45 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/tuples.h>
-#include <libft/math.h>
+#include <ft/tuples.h>
+#include <ft/math.h>
 
 void
 	image_draw_rect(t_image *image, t_brush brush, t_int2 start, t_int2 end)

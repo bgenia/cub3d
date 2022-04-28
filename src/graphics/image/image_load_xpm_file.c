@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:51:23 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 23:37:39 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 #include <mlx.h>
 
-#include <libft/string/string.h>
-#include <libft/utils.h>
+#include <ft/string/string.h>
+#include <ft/utils.h>
 
 t_image
 	image_load_xpm_file(void *mlx, char *path)

@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:39:46 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:56:48 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <cub3d/raycasting/ray.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 t_ray
 	ray_create_vertical(t_double2 origin, t_double2 direction)

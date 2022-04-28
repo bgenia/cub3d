@@ -6,13 +6,13 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:31:56 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/20 14:04:07 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/graphics/color.h>
 
-#include <libft/math.h>
+#include <ft/math.h>
 
 t_color
 	color_multiply(t_color color, double r, double g, double b)

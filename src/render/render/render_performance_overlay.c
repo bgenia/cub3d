@@ -6,14 +6,14 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:48:08 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 12:50:32 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/game/settings.h>
 #include <cub3d/game/game.h>
 
-#include <libft/string/format.h>
+#include <ft/string/format.h>
 
 #include <mlx.h>
 

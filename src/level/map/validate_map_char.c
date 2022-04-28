@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 01:13:03 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 17:14:47 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <cub3d/level/map.h>
 
-#include <libft/string/string.h>
+#include <ft/string/string.h>
 
 bool
 	validate_map_char(char c)

@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
-/*   Updated: 2022/04/03 20:21:25 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 #include <cub3d/level/level.h>
 #include <cub3d/level/assets.h>
 
-#include <libft/string/string.h>
-#include <libft/memory/memory.h>
-#include <libft/io/reader.h>
-#include <libft/io/fdstream.h>
-#include <libft/utils.h>
+#include <ft/string/string.h>
+#include <ft/memory/memory.h>
+#include <ft/io/reader.h>
+#include <ft/io/fdstream.h>
+#include <ft/utils.h>
 
 static char
 	*_check_fill_data(t_assets *assets)

@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:30:16 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:57:27 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <cub3d/raycasting/raycaster.h>
 #include <cub3d/vecmath.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 t_raycaster
 	raycaster_create(

@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:12:25 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:26:45 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 void
 	image_put_image(t_image *image, t_image *source, t_int2 position)

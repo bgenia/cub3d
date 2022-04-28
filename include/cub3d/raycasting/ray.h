@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:51:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 13:22:45 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdbool.h>
 
-# include <libft/tuples.h>
+# include <ft/tuples.h>
 
 # define RAY_CORRECTION_COEFFICENT 1e-5
 
