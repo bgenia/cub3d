@@ -6,14 +6,14 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:50:20 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:53:15 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/game/game.h>
 
-#include <libft/tuples.h>
-#include <libft/math.h>
+#include <ft/tuples.h>
+#include <ft/math.h>
 
 #include <mlx.h>
 

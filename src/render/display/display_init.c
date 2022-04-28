@@ -18,9 +18,9 @@
 #include <cub3d/render/renderer.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/utils.h>
-#include <libft/tuples.h>
-#include <libft/vector/vector.h>
+#include <ft/utils.h>
+#include <ft/tuples.h>
+#include <ft/vector/vector.h>
 
 #include <mlx.h>
 

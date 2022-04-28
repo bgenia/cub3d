@@ -17,8 +17,8 @@
 #include <cub3d/graphics/window.h>
 #include <cub3d/render/renderer.h>
 
-#include <libft/utils.h>
-#include <libft/vector/vector.h>
+#include <ft/utils.h>
+#include <ft/vector/vector.h>
 
 #include <mlx.h>
 

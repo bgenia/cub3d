@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:08:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 17:02:35 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include <cub3d/graphics/color.h>
 
-# include <libft/tuples.h>
+# include <ft/tuples.h>
 
 # define MINIMAP_COLOR_FRAME	0x00a32d
 # define MINIMAP_COLOR_BG		0x002109

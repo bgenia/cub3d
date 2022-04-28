@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 19:36:25 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/20 14:17:37 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 #include <cub3d/graphics/color.h>
 
-#include <libft/string/string.h>
-#include <libft/convert.h>
-#include <libft/math.h>
-#include <libft/array.h>
-#include <libft/utils.h>
-#include <libft/string/string.h>
+#include <ft/string/string.h>
+#include <ft/convert.h>
+#include <ft/math.h>
+#include <ft/array.h>
+#include <ft/utils.h>
+#include <ft/string/string.h>
 
 static bool
 	_validate_color_component(intmax_t component)

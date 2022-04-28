@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:09:14 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/16 05:29:31 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <mlx.h>
 
-#include <libft/io/printf.h>
+#include <ft/io/printf.h>
 
 int
 	handle_exit(t_game_state *state)

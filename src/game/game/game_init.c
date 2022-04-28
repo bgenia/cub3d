@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:26:45 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 16:51:09 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <cub3d/render/renderer.h>
 #include <cub3d/render/display.h>
 
-#include <libft/utils.h>
+#include <ft/utils.h>
 
 #include <mlx.h>
 

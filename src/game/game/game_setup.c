@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:55:04 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 17:16:25 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <cub3d/game/hooks.h>
 #include <cub3d/level/level.h>
 
-#include <libft/string/string.h>
+#include <ft/string/string.h>
 
 #include <mlx.h>
 

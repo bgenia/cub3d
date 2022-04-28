@@ -6,14 +6,14 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:06:37 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/18 22:13:41 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d/level/map.h>
 
-#include <libft/vector/vector.h>
-#include <libft/io/printf.h>
+#include <ft/vector/vector.h>
+#include <ft/io/printf.h>
 
 void
 	map_print(t_map *map)

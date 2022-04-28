@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:24:53 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/24 00:53:59 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 #include <cub3d/render/render.h>
 #include <cub3d/vecmath.h>
 
-#include <libft/tuples.h>
-#include <libft/math.h>
+#include <ft/tuples.h>
+#include <ft/math.h>
 
 typedef struct s_column_render_vars
 {

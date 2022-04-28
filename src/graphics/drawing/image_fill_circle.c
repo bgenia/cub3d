@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 05:26:11 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:26:45 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 static bool
 	_is_in_circle(t_int2 center, int radius, t_int2 point)

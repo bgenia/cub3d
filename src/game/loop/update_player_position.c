@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:48:54 by bgenia            #+#    #+#             */
-/*   Updated: 2022/04/03 02:55:58 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <cub3d/game/game.h>
 #include <cub3d/vecmath.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 void
 	update_player_position(t_game_state *state)

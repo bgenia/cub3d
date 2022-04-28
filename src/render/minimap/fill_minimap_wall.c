@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:58:48 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 16:48:28 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cub3d/graphics/image.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/tuples.h>
+#include <ft/tuples.h>
 
 void
 	fill_minimap_wall(t_game_state *state, t_image *minimap, t_double2 position)

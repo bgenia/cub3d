@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:47:58 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/21 13:27:08 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <cub3d/graphics/color.h>
 # include <cub3d/graphics/image.h>
 
-# include <libft/tuples.h>
+# include <ft/tuples.h>
 
 typedef enum e_brush_type
 {

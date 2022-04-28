@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:31:31 by bgenia            #+#    #+#             */
-/*   Updated: 2022/03/22 14:12:56 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 #include <cub3d/vecmath.h>
 #include <cub3d/graphics/drawing.h>
 
-#include <libft/tuples.h>
-#include <libft/math.h>
+#include <ft/tuples.h>
+#include <ft/math.h>
 
-#include <libft/io/printf.h>
+#include <ft/io/printf.h>
 
 static void
 	_draw_minimap_ray(t_game_state *state, t_ray *ray)
