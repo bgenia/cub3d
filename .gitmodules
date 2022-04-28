@@ -1,9 +1,9 @@
 [submodule "lib/libmlx"]
 	path = lib/libmlx
 	url = https://github.com/42Paris/minilibx-linux
-[submodule "lib/libft"]
-	path = lib/libft
-	url = https://github.com/bgenia/libft
 [submodule "maketools"]
 	path = maketools
 	url = https://github.com/bgenia/maketools
+[submodule "lib/libft"]
+	path = lib/libft
+	url = https://github.com/bgenia/libft
