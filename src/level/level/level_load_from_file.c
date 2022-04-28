@@ -6,7 +6,7 @@
 /*   By: bgenia <bgenia@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 00:27:21 by bgenia            #+#    #+#             */
-/*   Updated: 2022/04/28 17:01:02 by bgenia           ###   ########.fr       */
+/*   Updated: 2022/04/28 17:05:08 by bgenia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #include <ft/string/string.h>
 #include <ft/memory/memory.h>
-#include <ft/io/reader.h>
+#include <ft/io/input.h>
 #include <ft/io/fdstream.h>
 #include <ft/utils.h>
 
@@ -69,23 +69,17 @@ static void
 static void
 	_init_map(t_level *level, t_stream *istream)
 {
-	t_reader	reader;
-	char		*line;
+	char	*line;
 
-	reader = ft_reader_create(istream, 1024);
-	line = ft_reader_read_line(&reader);
-	while (1 == 1)
+	while (!istream->eof && !istream->has_error)
 	{
+		line = ft_get_line(istream);
 		if (line[0] && _check_fill_data(&level->assets))
 			_try_parse_asset(&level->assets, line);
 		else if (line[0] != '\0')
 			map_push_line(&level->map, line);
 		free(line);
-		if (reader.status == READER_EOF)
-			break ;
-		line = ft_reader_read_line(&reader);
 	}
-	ft_reader_destroy(&reader);
 	if (_check_fill_data(&level->assets))
 	{
 		level_destroy(level);
@@ -118,6 +112,7 @@ t_level
 	stream = ft_stream_open_fd(open(path, O_RDONLY), STREAM_MODE_I, true);
 	if (!ft_stream_is_valid(&stream))
 		ft_exitf(STDERR_FILENO, EXIT_FAILURE, "Error\nCannot open file\n");
+	ft_stream_use_read_buffer(&stream, ft_stream_buffer_create_dynamic(1024));
 	level.map = map_create();
 	level.assets = (t_assets){0};
 	_init_map(&level, &stream);
